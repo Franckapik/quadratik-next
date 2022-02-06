@@ -25,8 +25,6 @@ export default function Home() {
 export async function getServerSideProps(context) {
   const products = await prisma.product.findMany({});
 
-  console.log(products);
-
   return {
     props: { products },
   };
