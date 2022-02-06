@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../public/styles/quadratik.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import { SSRProvider } from "react-bootstrap";
 

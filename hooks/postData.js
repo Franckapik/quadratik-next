@@ -1,4 +1,5 @@
-const postData = (url, body) => {
+  const handleRegistration = (data) => console.log(data);
+
     console.log("Sending ", body);
     return fetch(url, {
       credentials: 'include',
@@ -16,4 +17,4 @@ const postData = (url, body) => {
 
   }
 
-  export default postData ;
+  const handleRegistration = (data) => console.log(data);

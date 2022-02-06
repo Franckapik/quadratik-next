@@ -1,47 +1,54 @@
-import { useEffect, useState } from "react";
+import CustomerForm from "../../components/Forms/CustomerForm";
+import DeliveryForm from "../../components/Forms/DeliveryForm";
+import ModifyCustomerForm from "../../components/Forms/ModifyCustomerForm";
+import useToggle from "../../hooks/useToggle";
+import React, { useEffect, useState } from "react";
 import {
-  Button,
   Card,
   Col,
   Container,
-  Modal,
   Row,
   Table,
+  Button,
+  Modal,
 } from "react-bootstrap";
-import useToggle from "../../hooks/useToggle";
+
 import prisma from "../../prisma/prisma";
-import CustomerForm from "../../components/Forms/CustomerForm";
 import Layout_Admin from "../../layouts/layout_admin";
 
-const Customers = ({ customer }) => {
+const Delivery = ({ deliveryList }) => {
   const [c_selected, setSelection] = useState(0);
 
   const [modalModif, setModif] = useToggle();
 
-  const [userState, setUserState] = useState([]); //update when deleting
+  const [deliveryState, setDeliveryState] = useState([]); //update when deleting
 
   useEffect(() => {
-    customer && customer.length && setUserState(customer);
-    console.log(customer);
-    console.log(userState);
-  }, [customer]);
+    deliveryList && deliveryList.length && setDeliveryState(deliveryList);
+  }, [deliveryList]);
 
   const removeCustomer = (id) => {
-    delData("/delCustomer/" + id);
-    setUserState(userState.filter((obj) => obj.user_id !== id));
+    /* delData("/delCustomer/" + id); */
+    setDeliveryState(deliveryState.filter((obj) => obj.user_id !== id));
   };
 
   return (
     <Layout_Admin>
       <Container className="mt--7" fluid>
+        {/* Dark table */}
         <Row className="mt-5">
           <div className="col">
-            <Card>
+            <Card className="bg-default shadow">
               <Card.Header className="bg-transparent border-0">
-                <h3>Liste des clients</h3>
+                <h3 className="text-white mb-0">Liste des livraisons</h3>
               </Card.Header>
-              {userState && userState.length && userState.length > 0 ? (
-                <Table className="align-items-center table-flush" responsive>
+              {deliveryState &&
+              deliveryState.length &&
+              deliveryState.length > 0 ? (
+                <Table
+                  className="align-items-center table-dark table-flush"
+                  responsive
+                >
                   <thead className="thead-dark">
                     <tr>
                       <th scope="col">
@@ -50,7 +57,7 @@ const Customers = ({ customer }) => {
                       <th scope="col">
                         <i className="far fa-edit"></i>
                       </th>
-                      {Object.keys(userState[0]).map((a, i) => {
+                      {Object.keys(deliveryState[0]).map((a, i) => {
                         return (
                           <th key={a + i} scope="col">
                             {a}
@@ -60,7 +67,7 @@ const Customers = ({ customer }) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {Array.from(userState).map((a, i) => {
+                    {Array.from(deliveryState).map((a, i) => {
                       return (
                         <tr key={a + i}>
                           <td onClick={() => removeCustomer(a.user_id)}>
@@ -83,7 +90,7 @@ const Customers = ({ customer }) => {
                   </tbody>
                 </Table>
               ) : (
-                "Aucun client existant"
+                "Aucun produit existant"
               )}
             </Card>
           </div>
@@ -92,13 +99,13 @@ const Customers = ({ customer }) => {
           <Col>
             <Card className="shadow">
               <Card.Header className="bg-transparent">
-                <h3 className="mb-0">Ajouter un client</h3>
+                <h3 className="mb-0">Ajouter une livraison</h3>
               </Card.Header>
               <Card.Body>
-                {userState && userState.length ? (
-                  <CustomerForm customerList={userState} />
+                {deliveryState && deliveryState.length ? (
+                  <DeliveryForm deliveryList={deliveryState} />
                 ) : (
-                  "Aucun client trouvé"
+                  "Aucune livraison trouvé"
                 )}
               </Card.Body>
             </Card>
@@ -132,8 +139,7 @@ const Customers = ({ customer }) => {
               <h3 className="mb-0">Modification du produit</h3>
             </Card.Header>
             <Card.Body>
-              {/*               <ModifyCustomerForm c_selected={c_selected} />
-               */}{" "}
+              <ModifyCustomerForm c_selected={c_selected} />
             </Card.Body>
           </Card>
         </div>
@@ -155,11 +161,13 @@ const Customers = ({ customer }) => {
   );
 };
 
-export default Customers;
+export default Delivery;
 
 export async function getServerSideProps(context) {
-  const customer = await prisma.customer.findMany({});
+  const deliveryList = await prisma.delivery.findMany({});
   return {
-    props: { customer },
+    props: {
+      deliveryList,
+    },
   };
 }
