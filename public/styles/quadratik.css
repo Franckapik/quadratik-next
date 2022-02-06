@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "futura-light";
+    src: url("../fonts/futura-light.ttf");
+    src: url("../fonts/futura-light.eot");
+    src: url("../fonts/futura-light.eot?#iefix") format("embedded-opentype"), url("../fonts/futura-light.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Cormorant-Garamond";
+    src: url("../fonts/CormorantGaramond-Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "FuturaBT-Medium";
+    src: url("../fonts/futura-med.ttf");
+    src: url("../fonts/futura-med.eot");
+    src: url("../fonts/futura-med.eot?#iefix") format("embedded-opentype"), url("../fonts/futura-med.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "social";
+    src: url("../fonts/social.ttf");
+    src: url("../fonts/social.eot");
+    src: url("../fonts/social.eot?#iefix") format("embedded-opentype"), url("../fonts/social.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    background-color: rgb(255, 255, 255); 
+  color: #02021a;
+  font-family: "futura-light", sans-serif;
+  font-weight: 400;
+  line-height: 1.2em;
+  letter-spacing: 0.2em;
+   column-span: all;
+ }

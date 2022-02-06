@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model auth {
+  auth_id    Int    @id(map: "auth_pk") @db.SmallInt
+  session_id String @db.VarChar(80)
+  user       String @db.VarChar(20)
+  paswd      String @db.VarChar(20)
+}
+
+model business {
+  tel      String? @db.VarChar(12)
+  siret    String  @db.VarChar(50)
+  sirene   String  @db.VarChar(50)
+  postal   Int
+  owner    String? @db.VarChar(30)
+  business String  @id(map: "business_pk") @db.VarChar(50)
+  mail     String  @db.VarChar(30)
+  logo     String? @db.VarChar(40)
+  iban     String? @db.VarChar(60)
+  country  String  @db.VarChar(6)
+  city     String  @db.VarChar(50)
+  bic      String? @db.VarChar(20)
+  ape      String  @db.VarChar(10)
+  address  String  @db.VarChar(80)
+}
+
+model collection {
+  collection_id Int       @id(map: "collection_pk") @db.SmallInt
+  col_name      String    @db.VarChar(50)
+  desc          String
+  folder        String?   @db.VarChar(50)
+  col_publish   Boolean
+  product       product[]
+}
+
+model customer {
+  user_id    Int       @id(map: "customer_pk") @unique(map: "customer_index") @db.SmallInt
+  name       String    @db.VarChar(40)
+  firstname  String    @db.VarChar(40)
+  address    String
+  postal     Int
+  mail       String    @db.VarChar(50)
+  city       String    @db.VarChar(46)
+  country    String    @db.VarChar(56)
+  session_id String
+  invoice    invoice[]
+}
+
+model delivery {
+  delivery_id       Int       @id(map: "delivery_pk") @db.SmallInt
+  recipient         String    @db.VarChar(50)
+  city              String    @db.VarChar(72)
+  country           String    @db.VarChar(30)
+  type              String    @db.VarChar(30)
+  postal            String    @db.VarChar(5)
+  fdp               Int?      @db.SmallInt
+  service_point     Int?
+  carrier           String?   @db.VarChar
+  colis_nb          Int?      @db.SmallInt
+  recipient_address String?   @db.VarChar
+  invoice           invoice[]
+}
+
+model discount {
+  reduction   Int       @db.SmallInt
+  discount_id Int       @id(map: "discount_pk") @db.SmallInt
+  code        String    @db.VarChar(6)
+  expiration  DateTime? @db.Date
+  invoice     invoice[]
+}
+
+model invoice {
+  user_id        Int          @db.SmallInt
+  invoice_id     Int          @id(map: "invoice_pk") @db.SmallInt
+  discount_id    Int?         @db.SmallInt
+  order_date     DateTime?    @db.Date
+  status_id      Int?         @db.SmallInt
+  delivery_id    Int?         @db.SmallInt
+  transaction_id Int?         @db.SmallInt
+  order_number   Int          @db.SmallInt
+  delivery       delivery?    @relation(fields: [delivery_id], references: [delivery_id], onDelete: NoAction, onUpdate: NoAction, map: "delivery_id_fk")
+  discount       discount?    @relation(fields: [discount_id], references: [discount_id], onDelete: NoAction, onUpdate: NoAction, map: "discount_id_fk")
+  status         status?      @relation(fields: [status_id], references: [status_id], onDelete: NoAction, onUpdate: NoAction, map: "status_id_fk")
+  transaction    transaction? @relation(fields: [transaction_id], references: [transaction_id], onDelete: NoAction, onUpdate: NoAction, map: "transaction_id")
+  customer       customer     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "user_id_fk")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model item {
+  invoice_id Int     @db.SmallInt
+  product_id Int     @db.SmallInt
+  qty        Int     @db.SmallInt
+  total      Int     @db.SmallInt
+  price      Int     @db.SmallInt
+  item_id    Int?    @db.SmallInt
+  product    product @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "product_id_fk")
+
+  @@ignore
+}
+
+model material {
+  value    Int     @id
+  name     String
+  price    Decimal @db.Decimal
+  stock    String? @db.VarChar
+  brand    String  @db.VarChar
+  label    String
+  provider String  @db.VarChar
+}
+
+model news {
+  news_id Int     @id(map: "news_pk") @db.SmallInt
+  page    String? @db.VarChar(30)
+  title   String  @db.VarChar(80)
+  desc    String
+  img     String? @db.VarChar(40)
+  link    String? @db.VarChar(80)
+}
+
+model packaging {
+  packaging_id Int       @id(map: "packaging_pk") @db.SmallInt
+  length       Int       @db.SmallInt
+  width        Int       @db.SmallInt
+  weight       Int?      @db.SmallInt
+  depth        Int       @db.SmallInt
+  charge       Int?      @db.SmallInt
+  unit         Int       @db.SmallInt
+  reference    String    @db.VarChar(20)
+  product      product[]
+}
+
+model performance {
+  performance_id Int       @id(map: "performance_pk") @db.SmallInt
+  desc           String
+  freq_min       Int       @db.SmallInt
+  freq_max       Int       @db.SmallInt
+  spectre        String    @db.VarChar(20)
+  product        product[]
+}
+
+model product {
+  product_id      Int         @id(map: "product_pk") @db.SmallInt
+  performance_id  Int         @db.SmallInt
+  name            String      @db.VarChar(40)
+  price           Int         @db.SmallInt
+  img             String?
+  stock           String?
+  collection_id   Int         @db.SmallInt
+  packaging_id    Int         @db.SmallInt
+  property_id     Int         @db.SmallInt
+  product_publish Boolean
+  collection      collection  @relation(fields: [collection_id], references: [collection_id], onDelete: NoAction, onUpdate: NoAction, map: "collection_id_fk")
+  packaging       packaging   @relation(fields: [packaging_id], references: [packaging_id], onDelete: NoAction, onUpdate: NoAction, map: "packaging_id_fk")
+  performance     performance @relation(fields: [performance_id], references: [performance_id], onDelete: NoAction, onUpdate: NoAction, map: "performance_id_fk")
+  property        property    @relation(fields: [property_id], references: [property_id], onDelete: NoAction, onUpdate: NoAction, map: "property_id_fk")
+  item            item[]      @ignore
+}
+
+model property {
+  property_id Int       @id(map: "property_pk") @db.SmallInt
+  depth       Int       @db.SmallInt
+  length      Int       @db.SmallInt
+  weight      Int       @db.SmallInt
+  width       Int       @db.SmallInt
+  width_cel   Int       @db.SmallInt
+  prime_nb    Int       @db.SmallInt
+  part_nb     Int       @db.SmallInt
+  cel_nb      Int       @db.SmallInt
+  paint       Boolean
+  wood        String    @db.VarChar(20)
+  finish      String?   @db.VarChar(20)
+  type        String    @db.VarChar(20)
+  thickness   Int?      @db.SmallInt
+  product     product[]
+}
+
+model session {
+  session_id String   @id(map: "session_pk")
+  expired    DateTime @db.Date
+  sess       String
+}
+
+model status {
+  status_id  Int       @id(map: "status_pk") @db.SmallInt
+  status_msg String
+  invoice    invoice[]
+}
+
+model transaction {
+  amount         Int       @db.SmallInt
+  status         String    @db.VarChar(20)
+  mode           String?   @db.VarChar(50)
+  date_created   DateTime? @db.Date
+  date_payment   DateTime? @db.Date
+  last_numbers   Int?      @db.SmallInt
+  card_brand     String?   @db.VarChar
+  desc           String?   @db.VarChar(100)
+  transaction_id Int       @id @db.SmallInt
+  invoice        invoice[]
+}
+
+model transporter {
+  transporter_id Int       @id(map: "transporter_pk") @db.SmallInt
+  col_date       DateTime? @db.Date
+  fdp            Int       @db.SmallInt
+  del_date       DateTime? @db.Date
+  service_point  String?
+  order_date     DateTime? @db.Date
+  reference      String?
+  colis_nb       Int?      @db.SmallInt
+  carrier        String    @db.VarChar
+}
