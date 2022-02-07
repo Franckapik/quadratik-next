@@ -29,7 +29,7 @@ export const Sidebar = () => {
       >
         <NavItem key="customer_link">
           <NavLink href="/admin/customer" title="Clients">
-            <i class="fas fa-users"></i>
+            <i className="fas fa-users"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -40,7 +40,7 @@ export const Sidebar = () => {
       >
         <NavItem key="profile_link">
           <NavLink href="/admin/profile" title="Profil">
-            <i class="far fa-user-circle"></i>
+            <i className="far fa-user-circle"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -51,7 +51,7 @@ export const Sidebar = () => {
       >
         <NavItem key="database_link">
           <NavLink href="/admin/database" title="Données">
-            <i class="fas fa-database"></i>
+            <i className="fas fa-database"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -62,7 +62,7 @@ export const Sidebar = () => {
       >
         <NavItem key="invoice_link">
           <NavLink href="/admin/invoice" title="Factures">
-            <i class="fas fa-file-invoice-dollar"></i>
+            <i className="fas fa-file-invoice-dollar"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -73,7 +73,7 @@ export const Sidebar = () => {
       >
         <NavItem key="colis_link">
           <NavLink href="/admin/parcel" title="Colis">
-            <i class="fas fa-box-open"></i>
+            <i className="fas fa-box-open"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -84,7 +84,7 @@ export const Sidebar = () => {
       >
         <NavItem key="price_link">
           <NavLink href="/admin/price" title="Prix">
-            <i class="fas fa-tags"></i>
+            <i className="fas fa-tags"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -95,7 +95,7 @@ export const Sidebar = () => {
       >
         <NavItem key="product_link">
           <NavLink href="/admin/product" title="Produits">
-            <i class="fab fa-product-hunt"></i>
+            <i className="fab fa-product-hunt"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -106,7 +106,7 @@ export const Sidebar = () => {
       >
         <NavItem key="delivery_link">
           <NavLink href="/admin/product" title="Livraison">
-            <i class="fas fa-truck"></i>
+            <i className="fas fa-truck"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>
@@ -117,7 +117,7 @@ export const Sidebar = () => {
       >
         <NavItem key="invoice_link">
           <NavLink href="/admin/relais" title="Relais">
-            <i class="fas fa-map-marked-alt"></i>
+            <i className="fas fa-map-marked-alt"></i>
           </NavLink>
         </NavItem>
       </OverlayTrigger>

@@ -4,10 +4,10 @@ import {
   Button,
   Card,
   Col,
-  CustomInput,
   ListGroup,
   ListGroupItem,
   Row,
+  Form,
   Table,
 } from "react-bootstrap";
 import Preview3D from "../layouts/Preview3D";
@@ -196,14 +196,14 @@ export const Product3D = ({ p_selected }) => {
             defaultValue={depth}
             onChange={(e) => setDepth(e.target.value)}
           ></Form.Control>
-          <CustomInput
+          <Form.Control
             type="switch"
             id="ratio"
             name="rationame"
             label="Ratio/Hauteur"
             onClick={setRatio}
           />
-          <CustomInput
+          <Form.Control
             type="switch"
             id="inv"
             name="invname"

@@ -35,10 +35,12 @@ const Products = ({
 }) => {
   const [p_selected, setSelection] = useState(0);
 
-  const [modal, setModal] = useToggle();
-  const [modal3d, setModal3d] = useToggle();
-  const [modalModif, setModif] = useToggle();
-  const [modalSvg, setModalSvg] = useToggle();
+  const [show, setShow] = useState(false);
+
+  const [modal, setModal] = useToggle(false);
+  const [modal3d, setModal3d] = useToggle(false);
+  const [modalModif, setModif] = useToggle(false);
+  const [modalSvg, setModalSvg] = useToggle(false);
 
   const [productState, setProductState] = useState([]); //update when deleting
 
@@ -123,7 +125,7 @@ const Products = ({
                           <td
                             onClick={() => {
                               setSelection(a);
-                              setModal();
+                              setShow(true);
                             }}
                             className="p-2"
                           >
@@ -132,7 +134,7 @@ const Products = ({
                           <td
                             onClick={() => {
                               setSelection(a);
-                              setModif();
+                              setShow(true);
                             }}
                             className="p-2"
                           >
@@ -209,79 +211,19 @@ const Products = ({
       </Container>
       <ModalBox
         title="Modification du produit"
-        isOpen={modalModif}
-        toggle={setModif}
+        show={show}
+        setShow={setShow}
         button1="Fermer"
         button2="Enregistrer"
       >
-        <ModifyProductForm
+        {/*  <ModifyProductForm
           p_selected={p_selected}
           productList={productList}
           collectionList={collectionList}
           packagingList={packagingList}
           propertyList={propertyList}
           performanceList={performanceList}
-        />
-      </ModalBox>
-      <ModalBox
-        title={"Image du produit n°" + p_selected.product_id}
-        isOpen={modal}
-        toggle={setModal}
-        button1="Fermer"
-        button2="Enregistrer"
-      >
-        <Modal3D>
-          <Row>
-            <ListGroup className="col-3">
-              <ListGroupItem>{p_selected.product_id}</ListGroupItem>
-              <ListGroupItem>{p_selected.name}</ListGroupItem>
-              <ListGroupItem>{p_selected.col_name}</ListGroupItem>
-              <ListGroupItem>{p_selected.price} €</ListGroupItem>
-              <ListGroupItem>
-                {p_selected.width}x{p_selected.lenght}x{p_selected.depth}
-              </ListGroupItem>
-            </ListGroup>
-            <ListGroup className="col-3">
-              <ListGroupItem>{p_selected.spectre} Hz</ListGroupItem>
-              <ListGroupItem>{p_selected.type}</ListGroupItem>
-              <ListGroupItem>{p_selected.wood}</ListGroupItem>
-              <ListGroupItem>{p_selected.stock} </ListGroupItem>
-              <ListGroupItem>{p_selected.desc}</ListGroupItem>
-            </ListGroup>
-            <ListGroup className="col-3">
-              <ListGroupItem>{p_selected.cel_nb}</ListGroupItem>
-              <ListGroupItem>{p_selected.weight}</ListGroupItem>
-              <ListGroupItem>{p_selected.charge}</ListGroupItem>
-              <ListGroupItem>{p_selected.width_cel}</ListGroupItem>
-              <ListGroupItem>{p_selected.part_nb}</ListGroupItem>
-            </ListGroup>
-            <ListGroup className="col-3">
-              <ListGroupItem>{p_selected.reference}</ListGroupItem>
-              <ListGroupItem>{p_selected.finish}</ListGroupItem>
-              <ListGroupItem>{p_selected.area}</ListGroupItem>
-              <ListGroupItem>{p_selected.value}</ListGroupItem>
-              <ListGroupItem>{p_selected.unit}</ListGroupItem>
-            </ListGroup>
-          </Row>
-        </Modal3D>
-      </ModalBox>
-      <ModalBox
-        isOpen={modal3d}
-        toggle={setModal3d}
-        button1="Fermer"
-        button2="Ajouter en Boutique"
-        noheader
-      >
-        <Product3D p_selected={p_selected}></Product3D>
-      </ModalBox>
-      <ModalBox
-        isOpen={modalSvg}
-        toggle={setModalSvg}
-        button1="Fermer"
-        button2="Ajouter en Boutique"
-        noheader
-      >
-        <Product2D p_selected={p_selected}></Product2D>
+        /> */}
       </ModalBox>
     </Layout_Admin>
   );
