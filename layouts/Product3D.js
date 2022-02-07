@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useToggle from "../../hooks/useToggle";
+import useToggle from "../hooks/useToggle";
 import {
   Button,
   Card,
@@ -10,8 +10,7 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
-import Preview3D from "../../layouts/Preview3D";
-import logo from "../assets/img/brand/logo_cercle.svg";
+import Preview3D from "../layouts/Preview3D";
 
 export const Product3D = ({ p_selected }) => {
   const [width, setWidth] = useState(50);
@@ -46,7 +45,6 @@ export const Product3D = ({ p_selected }) => {
             zIndex: "0",
             width: "100%",
             height: "100%",
-            backgroundImage: `url(${logo})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "50%",
             backgroundPosition: "center",

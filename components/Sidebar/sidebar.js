@@ -21,6 +21,9 @@ export const Sidebar = () => {
       <NavItem key="invoice_link">
         <NavLink href="/admin/price">Prix</NavLink>
       </NavItem>
+      <NavItem key="invoice_link">
+        <NavLink href="/admin/product">Produit</NavLink>
+      </NavItem>
     </Nav>
   );
 };

@@ -22,7 +22,17 @@ import ModifyProductForm from "../../components/Forms/ModifyProductForm";
 import ModalBox from "../../layouts/ModalBox";
 import { Product3D } from "../../layouts/Product3D";
 import { Product2D } from "../../layouts/Product2D";
-const Products = () => {
+
+import prisma from "../../prisma/prisma";
+import Layout_Admin from "../../layouts/layout_admin";
+
+const Products = ({
+  productList,
+  collectionList,
+  performanceList,
+  packagingList,
+  propertyList,
+}) => {
   const [p_selected, setSelection] = useState(0);
 
   const [modal, setModal] = useToggle();
@@ -42,21 +52,24 @@ const Products = () => {
   };
 
   return (
-    <>
-      {productList &&
-      collectionList &&
-      productList.length &&
-      collectionList.length &&
-      productList.length > 0 &&
-      collectionList.length > 0 ? (
-        <ProductHeader products={productState} collections={collectionList} />
-      ) : (
-        "Aucun Produit"
-      )}
-
-      {/* Page content */}
-      <Container className="mt--7" fluid>
-        {/* Dark table */}
+    <Layout_Admin>
+      <Container fluid>
+        <Row>
+          {" "}
+          {productList &&
+          collectionList &&
+          productList.length &&
+          collectionList.length &&
+          productList.length > 0 &&
+          collectionList.length > 0 ? (
+            <ProductHeader
+              products={productState}
+              collections={collectionList}
+            />
+          ) : (
+            "Aucun Produit"
+          )}
+        </Row>
         <Row className="mt-5">
           <div className="col">
             <Card className="bg-default ">
@@ -270,8 +283,49 @@ const Products = () => {
       >
         <Product2D p_selected={p_selected}></Product2D>
       </ModalBox>
-    </>
+    </Layout_Admin>
   );
 };
 
 export default Products;
+
+export async function getServerSideProps(context) {
+  const productList = await prisma.product.findMany({});
+  const customerList = await prisma.customer.findMany({});
+  const collectionList = await prisma.collection.findMany({});
+  const performanceList = await prisma.performance.findMany({});
+  const packagingList = await prisma.packaging.findMany({});
+  const propertyList = await prisma.property.findMany({});
+  const statusList = await prisma.status.findMany({});
+  const itemList = await prisma.item.findMany({});
+  const deliveryList = await prisma.delivery.findMany({});
+  const invoiceList = JSON.parse(
+    JSON.stringify(await prisma.invoice.findMany({}))
+  );
+  const discountList = JSON.parse(
+    JSON.stringify(await prisma.discount.findMany({}))
+  );
+  const transactionList = JSON.parse(
+    JSON.stringify(await prisma.transaction.findMany({}))
+  );
+  const materialList = JSON.parse(
+    JSON.stringify(await prisma.material.findMany({}))
+  );
+  return {
+    props: {
+      productList,
+      customerList,
+      collectionList,
+      performanceList,
+      packagingList,
+      invoiceList,
+      materialList,
+      propertyList,
+      statusList,
+      itemList,
+      transactionList,
+      discountList,
+      deliveryList,
+    },
+  };
+}
