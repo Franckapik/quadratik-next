@@ -35,7 +35,7 @@ const Customers = ({ customer }) => {
         <Row>
           <Col>
             <Card>
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3>Liste des clients</h3>
               </Card.Header>
               {userState && userState.length && userState.length > 0 ? (

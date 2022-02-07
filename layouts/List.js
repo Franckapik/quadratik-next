@@ -6,13 +6,10 @@ export const List = ({ data, name }) => {
     <Row className="mt-5">
       <div className="col">
         <Card className="bg-default ">
-          <Card.Header className="bg-transparent border-0">
+          <Card.Header>
             <h3 className="text-white mb-0"> Les {name}</h3>
           </Card.Header>
-          <Table
-            className="align-items-center table-dark table-flush"
-            responsive
-          >
+          <Table responsive>
             <thead>
               <tr>
                 {Object.keys(data[0]).map((a, i) => {

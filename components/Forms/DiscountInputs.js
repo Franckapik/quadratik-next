@@ -25,7 +25,7 @@ export const DiscountInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               placeholder={nextId}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -36,7 +36,7 @@ export const DiscountInputs = ({ nextId }) => {
               className="form-control"
               type="number"
               {...register("discount.reduction", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -47,7 +47,7 @@ export const DiscountInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("discount.code", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -57,7 +57,7 @@ export const DiscountInputs = ({ nextId }) => {
               className="form-control"
               type="date"
               {...register("discount.expiration", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

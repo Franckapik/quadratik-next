@@ -4,10 +4,16 @@ export const Sidebar = () => {
   return (
     <Nav>
       <NavItem key="customer_link">
-        <NavLink href="/admin/customer">Customer</NavLink>
+        <NavLink href="/admin/customer">Clients</NavLink>
       </NavItem>
       <NavItem key="profile_link">
-        <NavLink href="/admin/profile">Profile</NavLink>
+        <NavLink href="/admin/profile">Profil</NavLink>
+      </NavItem>
+      <NavItem key="database_link">
+        <NavLink href="/admin/database">Données</NavLink>
+      </NavItem>
+      <NavItem key="invoice_link">
+        <NavLink href="/admin/invoice">Facture</NavLink>
       </NavItem>
     </Nav>
   );

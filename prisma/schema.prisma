@@ -92,17 +92,14 @@ model invoice {
   customer       customer     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "user_id_fk")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model item {
+  item_id    Int     @id @db.SmallInt
   invoice_id Int     @db.SmallInt
   product_id Int     @db.SmallInt
   qty        Int     @db.SmallInt
   total      Int     @db.SmallInt
   price      Int     @db.SmallInt
-  item_id    Int?    @db.SmallInt
   product    product @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "product_id_fk")
-
-  @@ignore
 }
 
 model material {
@@ -160,7 +157,7 @@ model product {
   packaging       packaging   @relation(fields: [packaging_id], references: [packaging_id], onDelete: NoAction, onUpdate: NoAction, map: "packaging_id_fk")
   performance     performance @relation(fields: [performance_id], references: [performance_id], onDelete: NoAction, onUpdate: NoAction, map: "performance_id_fk")
   property        property    @relation(fields: [property_id], references: [property_id], onDelete: NoAction, onUpdate: NoAction, map: "property_id_fk")
-  item            item[]      @ignore
+  item            item[]
 }
 
 model property {

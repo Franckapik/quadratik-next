@@ -39,16 +39,13 @@ const Delivery = ({ deliveryList }) => {
         <Row className="mt-5">
           <div className="col">
             <Card className="bg-default ">
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="text-white mb-0">Liste des livraisons</h3>
               </Card.Header>
               {deliveryState &&
               deliveryState.length &&
               deliveryState.length > 0 ? (
-                <Table
-                  className="align-items-center table-dark table-flush"
-                  responsive
-                >
+                <Table responsive>
                   <thead>
                     <tr>
                       <th scope="col">

@@ -19,9 +19,9 @@ import {
 } from "react-bootstrap";
 import delData from "../../hooks/delData";
 import ModifyProductForm from "../../components/Forms/ModifyProductForm";
-import ModalBox from "layouts/ModalBox";
+import ModalBox from "../../layouts/ModalBox";
 import { Product3D } from "../../layouts/Product3D";
-import { Product2D } from "layouts/Product2D";
+import { Product2D } from "../../layouts/Product2D";
 const Products = () => {
   const [p_selected, setSelection] = useState(0);
 
@@ -60,16 +60,13 @@ const Products = () => {
         <Row className="mt-5">
           <div className="col">
             <Card className="bg-default ">
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="text-white mb-0">Liste des produits</h3>
               </Card.Header>
               {productState &&
               productState.length &&
               productState.length > 0 ? (
-                <Table
-                  className="align-items-center table-dark table-flush"
-                  responsive
-                >
+                <Table responsive>
                   <thead>
                     <tr>
                       <th scope="col" className="p-2">

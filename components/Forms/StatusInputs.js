@@ -26,7 +26,7 @@ export const StatusInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               placeholder={nextId}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -37,7 +37,7 @@ export const StatusInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("status.status_msg", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

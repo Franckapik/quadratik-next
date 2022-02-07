@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   Form,
-  Form,
   Input,
   Container,
   Row,
@@ -25,7 +24,7 @@ const Profile = ({ businessList }) => {
 
   return (
     <Layout_Admin>
-      <Container className="mt--9" fluid>
+      <Container>
         <Row>
           <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
             <Card className="card-profile ">
@@ -68,21 +67,11 @@ const Profile = ({ businessList }) => {
           </Col>
           {b ? (
             <Col className="order-xl-1" xl="8">
-              <Card className="bg-secondary ">
-                <Card.Header className="bg-white border-0">
+              <Card>
+                <Card.Header>
                   <Row className="align-items-center">
                     <Col xs="8">
                       <h3 className="mb-0">Mon compte</h3>
-                    </Col>
-                    <Col className="text-right" xs="4">
-                      <Button
-                        color="primary"
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                        size="sm"
-                      >
-                        Copier
-                      </Button>
                     </Col>
                   </Row>
                 </Card.Header>

@@ -27,7 +27,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               type="text"
               placeholder={nextId}
               disabled
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -39,7 +39,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               type="text"
               {...register("property.type", { required: true })}
               placeholder="D1N7P10L60"
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -50,7 +50,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               {...register("property.wood", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -64,7 +64,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.depth", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -75,7 +75,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.length", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -86,7 +86,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.weight", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -97,7 +97,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.width", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -112,7 +112,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.width_cel", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -123,7 +123,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.area", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -134,7 +134,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.part_nb", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -147,7 +147,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("property.cel_nb", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -175,7 +175,7 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               {...register("property.finish", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

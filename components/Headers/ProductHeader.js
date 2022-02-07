@@ -18,7 +18,7 @@
 import React from "react";
 
 // reactstrap components
-import { Card, CardTitle, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 
 const ProductHeader = ({ products, collections }) => {
   const prixMoyen = (a) => {
@@ -37,12 +37,12 @@ const ProductHeader = ({ products, collections }) => {
                   <Card.Body>
                     <Row>
                       <div className="col">
-                        <CardTitle
+                        <Card.Title
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
                           Nombre de produits
-                        </CardTitle>
+                        </Card.Title>
                         <span className="h2 font-weight-bold mb-0">
                           {products.length}
                         </span>
@@ -61,12 +61,12 @@ const ProductHeader = ({ products, collections }) => {
                   <Card.Body>
                     <Row>
                       <div className="col">
-                        <CardTitle
+                        <Card.Title
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
                           Nombre de collections
-                        </CardTitle>
+                        </Card.Title>
                         <span className="h2 font-weight-bold mb-0">
                           {collections.length}
                         </span>
@@ -85,12 +85,12 @@ const ProductHeader = ({ products, collections }) => {
                   <Card.Body>
                     <Row>
                       <div className="col">
-                        <CardTitle
+                        <Card.Title
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
                           Prix moyen
-                        </CardTitle>
+                        </Card.Title>
                         <span className="h2 font-weight-bold mb-0">
                           {prixMoyen(products)} €
                         </span>

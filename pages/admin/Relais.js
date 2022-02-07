@@ -12,7 +12,6 @@ import {
   Col,
   Container,
   Form,
-  Form,
   ListGroup,
   ListGroupItem,
   Row,
@@ -47,7 +46,7 @@ const Relais = () => {
         <Row className="mt-5">
           <div className="col">
             <Card className="bg-default ">
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="text-white mb-0">
                   Liste des transporteurs disponibles (carriers)
                 </h3>
@@ -55,10 +54,7 @@ const Relais = () => {
               {carriersList &&
               carriersList.length &&
               carriersList.length > 0 ? (
-                <Table
-                  className="align-items-center table-dark table-flush"
-                  responsive
-                >
+                <Table responsive>
                   <tbody>
                     {Array.from(carriersList).map((a, i) => {
                       return (
@@ -78,7 +74,7 @@ const Relais = () => {
         <Row className="mt-5">
           <div className="col">
             <Card>
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="mb-0">Rechercher un relais</h3>
               </Card.Header>
               <Card.Body>
@@ -139,7 +135,7 @@ const Relais = () => {
         <Row className="mt-5">
           <div className="col">
             <Card>
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="mb-0">Relais selectionné</h3>
               </Card.Header>
               <Card.Body>

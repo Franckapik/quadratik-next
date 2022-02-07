@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import useToggle from "hooks/useToggle";
+import useToggle from "../../hooks/useToggle";
 import {
   Button,
   Card,
-  CardTitle,
   Col,
   CustomInput,
   ListGroup,
@@ -11,7 +10,7 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
-import Preview3D from "layouts/Preview3D";
+import Preview3D from "../../layouts/Preview3D";
 import logo from "../assets/img/brand/logo_cercle.svg";
 
 export const Product3D = ({ p_selected }) => {
@@ -180,7 +179,7 @@ export const Product3D = ({ p_selected }) => {
             className="form-control"
             defaultValue={width}
             onChange={(e) => setWidth(e.target.value)}
-          ></input>
+          ></Form.Control>
           <Form.Label>Longueur</Form.Label>
           <Form.Control
             type="range"
@@ -189,7 +188,7 @@ export const Product3D = ({ p_selected }) => {
             className="form-control"
             defaultValue={length}
             onChange={(e) => setLength(e.target.value)}
-          ></input>
+          ></Form.Control>
           <Form.Label>Profondeur</Form.Label>
           <Form.Control
             type="range"
@@ -198,7 +197,7 @@ export const Product3D = ({ p_selected }) => {
             className="form-control"
             defaultValue={depth}
             onChange={(e) => setDepth(e.target.value)}
-          ></input>
+          ></Form.Control>
           <CustomInput
             type="switch"
             id="ratio"
@@ -218,7 +217,7 @@ export const Product3D = ({ p_selected }) => {
           <Col md={12}>
             <Card style={{ width: "100%" }} className="m-2">
               <Card.Header>
-                <CardTitle>Diffusion</CardTitle>
+                <Card.Title>Diffusion</Card.Title>
               </Card.Header>
               <Card.Body tag="h3">
                 {fmin} Hz -{fmax} Hz

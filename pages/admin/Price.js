@@ -195,7 +195,7 @@ const Price = () => {
                   value={fraisAd}
                   step={0.1}
                   onChange={(e) => setFraisAd(Number(e.target.value))}
-                ></input>
+                ></Form.Control>
                 <Table className="mt-3" hover striped responsive>
                   <tbody>
                     <tr>
@@ -293,7 +293,7 @@ const Price = () => {
                   value={perte}
                   step={0.01}
                   onChange={(e) => setPerte(Number(e.target.value))}
-                ></input>
+                ></Form.Control>
                 <Table className="mt-3" hover striped responsive>
                   <tbody>
                     <tr>
@@ -338,7 +338,7 @@ const Price = () => {
                   value={marge}
                   step={0.1}
                   onChange={(e) => setMarge(e.target.value)}
-                ></input>
+                ></Form.Control>
                 <Form.Label htmlFor="collection_name">Taxe Urssaf</Form.Label>
                 <Form.Control
                   className="form-control"
@@ -346,7 +346,7 @@ const Price = () => {
                   value={taxe}
                   step={0.1}
                   onChange={(e) => setTaxe(e.target.value)}
-                ></input>
+                ></Form.Control>
                 <Table className="mt-3" hover striped responsive>
                   <tbody>
                     <tr>
@@ -482,16 +482,13 @@ const Price = () => {
         <Row className="mt-5">
           <Col>
             <Card className="bg-default ">
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="text-white mb-0">Les matériaux favoris</h3>
               </Card.Header>
               {materialState &&
               materialState.length &&
               materialState.length > 0 ? (
-                <Table
-                  className="align-items-center table-dark table-flush"
-                  responsive
-                >
+                <Table responsive>
                   <thead>
                     <tr>
                       <th scope="col">

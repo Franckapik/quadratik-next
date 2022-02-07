@@ -56,7 +56,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               placeholder={nextId}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -67,7 +67,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("delivery.recipient", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -81,7 +81,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("delivery.recipient_address", { required: true })}
-            ></input>
+            ></Form.Control>
             <ListGroup>
               {addressList &&
                 addressList.map((a, i) => (
@@ -111,7 +111,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="number"
               {...register("delivery.postal", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -122,7 +122,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("delivery.city", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -135,7 +135,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("delivery.country", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -163,7 +163,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="number"
               {...register("delivery.fdp")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -181,10 +181,9 @@ export const DeliveryInputs = ({ nextId }) => {
                 className="form-control"
                 type="number"
                 {...register("delivery.service_point")}
-              ></input>
-              <InputGroupAddon addonType="append">
-                <Button onClick={setModif}>Rechercher</Button>
-              </InputGroupAddon>
+              ></Form.Control>
+
+              <Button onClick={setModif}>Rechercher</Button>
             </InputGroup>
           </Form.Group>
         </Col>
@@ -195,7 +194,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="text"
               {...register("delivery.carrier")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -206,7 +205,7 @@ export const DeliveryInputs = ({ nextId }) => {
               className="form-control"
               type="number"
               {...register("delivery.colis_nb")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

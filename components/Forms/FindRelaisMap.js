@@ -2,7 +2,7 @@
 
 import { Map, Marker } from "pigeon-maps";
 import React, { useEffect, useState } from "react";
-import { Card, CardTitle, Col, List, Row } from "react-bootstrap";
+import { Card, Col, List, Row } from "react-bootstrap";
 const FindRelaisMap = ({
   addressSelected,
   setRelaisSelected,
@@ -96,7 +96,7 @@ const FindRelaisMap = ({
             className="form-control p-0"
             type="text"
             placeholder={addressSelected.input}
-          ></input>
+          ></Form.Control>
 
           {serviceState && serviceState.length && serviceState.length > 0
             ? Array.from(serviceState).map((a) => {
@@ -109,14 +109,14 @@ const FindRelaisMap = ({
                     }}
                     className="bg-default border-white p-1"
                   >
-                    <CardTitle
+                    <Card.Title
                       style={{
                         color: relaisSelected.id === a.id ? "red" : "white",
                       }}
                       tag="h5"
                     >
                       {a.name} [ {a.carrier} ]
-                    </CardTitle>
+                    </Card.Title>
                     <Card.Body tag="h6" className="p-0 ">
                       <List type="unstyled" className="mt-0">
                         <li className="text-white">

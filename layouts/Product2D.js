@@ -1,4 +1,4 @@
-import dimension from "hooks/useDimension";
+import dimension from "../../hooks/useDimension";
 import React, { useEffect, useRef, useState } from "react";
 import { Polygon, Svg, Text } from "react-svg-path";
 import { Button, Container } from "react-bootstrap";

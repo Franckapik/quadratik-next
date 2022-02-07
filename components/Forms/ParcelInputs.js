@@ -19,7 +19,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.house_number", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -30,7 +30,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="text"
               {...register("parcel.address", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={2}>
@@ -41,7 +41,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.postal_code", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={2}>
@@ -51,7 +51,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="text"
               {...register("parcel.city", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -64,7 +64,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="text"
               {...register("parcel.country", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -75,7 +75,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="email"
               {...register("parcel.email", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -86,7 +86,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.telephone", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -99,7 +99,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.weight", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -110,7 +110,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.length", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -121,7 +121,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.width", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -132,7 +132,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.height", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -145,7 +145,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="text"
               {...register("parcel.order_number")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -159,7 +159,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.insured_value")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -172,7 +172,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.total_order_value")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -183,7 +183,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.quantity", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -196,7 +196,7 @@ export const ParcelInputs = ({
               className="form-control"
               type="number"
               {...register("parcel.to_service_point")}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>

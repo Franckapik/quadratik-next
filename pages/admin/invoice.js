@@ -1,14 +1,23 @@
-import InvoiceForm from "../../components/Forms/InvoiceForm";
-
 import easyinvoice from "easyinvoice";
-import delData from "../../hooks/delData";
-
-import useToggle from "../../hooks/useToggle";
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Table } from "react-bootstrap";
-import { invoicePdf } from "variables/invoicePdf";
+import InvoiceForm from "../../components/Forms/InvoiceForm";
+import delData from "../../hooks/delData";
+import { invoicePdf } from "../../layouts/invoicePdf";
+import prisma from "../../prisma/prisma";
 
-const Orders = () => {
+import Layout_Admin from "../../layouts/layout_admin";
+
+const Orders = ({
+  productList,
+  customerList,
+  invoiceList,
+  itemList,
+  transactionList,
+  statusList,
+  discountList,
+  deliveryList,
+}) => {
   const facturation = (template, invoice, items, business) => {
     //get invoice data
     template.client.company = invoice.name + " " + invoice.firstname;
@@ -59,20 +68,15 @@ const Orders = () => {
   };
 
   return (
-    <>
-      {/* Page content */}
-      <Container className="mt--7" fluid>
-        {/* Dark table */}
+    <Layout_Admin>
+      <Container fluid>
         <Row className="mt-5">
           <Col>
             <Card className="bg-default ">
-              <Card.Header className="bg-transparent border-0">
+              <Card.Header>
                 <h3 className="text-white mb-0">Les commandes</h3>
               </Card.Header>
-              <Table
-                className="align-items-center table-dark table-flush"
-                responsive
-              >
+              <Table responsive>
                 <thead>
                   <tr>
                     <th scope="col">
@@ -164,8 +168,49 @@ const Orders = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </Layout_Admin>
   );
 };
 
 export default Orders;
+
+export async function getServerSideProps(context) {
+  const productList = await prisma.product.findMany({});
+  const customerList = await prisma.customer.findMany({});
+  const collectionList = await prisma.collection.findMany({});
+  const performanceList = await prisma.performance.findMany({});
+  const packagingList = await prisma.packaging.findMany({});
+  const propertyList = await prisma.property.findMany({});
+  const statusList = await prisma.status.findMany({});
+  const itemList = await prisma.item.findMany({});
+  const deliveryList = await prisma.delivery.findMany({});
+  const invoiceList = JSON.parse(
+    JSON.stringify(await prisma.invoice.findMany({}))
+  );
+  const discountList = JSON.parse(
+    JSON.stringify(await prisma.discount.findMany({}))
+  );
+  const transactionList = JSON.parse(
+    JSON.stringify(await prisma.transaction.findMany({}))
+  );
+  const materialList = JSON.parse(
+    JSON.stringify(await prisma.material.findMany({}))
+  );
+  return {
+    props: {
+      productList,
+      customerList,
+      collectionList,
+      performanceList,
+      packagingList,
+      invoiceList,
+      materialList,
+      propertyList,
+      statusList,
+      itemList,
+      transactionList,
+      discountList,
+      deliveryList,
+    },
+  };
+}

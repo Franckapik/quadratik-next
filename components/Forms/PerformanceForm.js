@@ -27,7 +27,7 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
               type="text"
               placeholder={nextId}
               disabled
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={10}>
@@ -38,7 +38,7 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               {...register("performance.desc", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -52,7 +52,7 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("performance.freq_min", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -64,7 +64,7 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("performance.freq_max", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={4}>
@@ -74,7 +74,7 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               {...register("performance.spectre", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

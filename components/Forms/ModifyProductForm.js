@@ -1,12 +1,10 @@
-import useToggle from "hooks/useToggle";
+import useToggle from "../../hooks/useToggle";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   Alert,
   Button,
   Card,
-  CardTitle,
-  Form,
   Form,
   InputGroup,
   InputGroupAddon,
@@ -79,7 +77,7 @@ export default function ModifyProductForm({
             type="text"
             placeholder={p_selected.product_id}
             disabled
-          ></input>
+          ></Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="product_name">Nom</Form.Label>
@@ -128,7 +126,7 @@ export default function ModifyProductForm({
             )}
         </Form.Group>
 
-        <FormGroup
+        <Form.Group
           style={{
             display: !newCollection ? "block" : "none", // toggle the visbility of an input
           }}
@@ -148,9 +146,8 @@ export default function ModifyProductForm({
                 return <option value={a.collection_id}>{a.col_name}</option>;
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addCollection}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addCollection}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.product &&
@@ -160,10 +157,10 @@ export default function ModifyProductForm({
         </Form.Group>
         {newCollection ? (
           <Card color="info">
-            <CardTitle>
+            <Card.Title>
               Nouvelle Collection |{" "}
               <small onClick={addCollection}>Collection Existante</small>
-            </CardTitle>
+            </Card.Title>
             <Card.Body>
               <CollectionForm
                 nextId={nextCollectionId}
@@ -183,10 +180,10 @@ export default function ModifyProductForm({
         </Form.Group>
         {newPerformance ? (
           <Card color="info">
-            <CardTitle>
+            <Card.Title>
               Nouvelle Performance |{" "}
               <small onClick={addPerformance}>Performance Existante</small>
-            </CardTitle>
+            </Card.Title>
             <Card.Body>
               <PerformanceForm
                 nextId={nextPerformanceId}
@@ -213,9 +210,8 @@ export default function ModifyProductForm({
                   return <option value={a.performance_id}>{a.spectre}</option>;
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addPerformance}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addPerformance}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&
@@ -227,10 +223,10 @@ export default function ModifyProductForm({
 
         {newPackaging ? (
           <Card color="info">
-            <CardTitle>
+            <Card.Title>
               Nouveau Packaging |{" "}
               <small onClick={addPackaging}>Packaging Existant</small>
-            </CardTitle>
+            </Card.Title>
             <Card.Body>
               <PackagingForm
                 nextId={nextPackagingId}
@@ -257,9 +253,8 @@ export default function ModifyProductForm({
                   return <option value={a.packaging_id}>{a.reference}</option>;
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addPackaging}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addPackaging}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&
@@ -271,10 +266,10 @@ export default function ModifyProductForm({
 
         {newProperty ? (
           <Card color="info">
-            <CardTitle>
+            <Card.Title>
               Nouvelle Propriété |{" "}
               <small onClick={addProperty}>Propriété Existante</small>
-            </CardTitle>
+            </Card.Title>
             <Card.Body>
               <PropertyForm
                 nextId={nextPropertyId}
@@ -301,9 +296,8 @@ export default function ModifyProductForm({
                   return <option value={a.property_id}>{a.type}</option>;
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addProperty}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addProperty}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&

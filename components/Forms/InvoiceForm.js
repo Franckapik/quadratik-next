@@ -1,14 +1,13 @@
 import { Alert } from "bootstrap";
 
-import useToggle from "hooks/useToggle";
-import { AddForm } from "layouts/AddForm";
+import useToggle from "../../hooks/useToggle";
+import { AddForm } from "../../layouts/AddForm";
 import { useState } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import {
   Button,
   Card,
   Col,
-  Form,
   Form,
   InputGroup,
   InputGroupAddon,
@@ -75,13 +74,15 @@ const InvoiceForm = ({
           <Col md={4}>
             {" "}
             <Form.Group>
-              <Form.Label htmlFor="invoice_ident">Identifiant facture</Form.Label>
+              <Form.Label htmlFor="invoice_ident">
+                Identifiant facture
+              </Form.Label>
               <Form.Control
                 className="form-control"
                 type="text"
                 placeholder={nextInvoiceId}
                 disabled
-              ></input>
+              ></Form.Control>
             </Form.Group>
           </Col>
           <Col md={4}>
@@ -93,22 +94,24 @@ const InvoiceForm = ({
                 type="text"
                 placeholder={order_number}
                 disabled
-              ></input>
+              ></Form.Control>
             </Form.Group>
           </Col>
           <Col md={4}>
             {" "}
             <Form.Group>
-              <Form.Label htmlFor="invoice_order_date">Date de commande</Form.Label>
+              <Form.Label htmlFor="invoice_order_date">
+                Date de commande
+              </Form.Label>
               <Form.Control
                 className="form-control"
                 type="date"
                 {...methods.register("invoice.order_date", { required: true })}
-              ></input>
+              ></Form.Control>
             </Form.Group>
           </Col>
         </Row>
-        <FormGroup
+        <Form.Group
           style={{
             display: !newClient ? "block" : "none", // toggle the visbility of an input
           }}
@@ -133,9 +136,8 @@ const InvoiceForm = ({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addClient}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addClient}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.invoice &&
@@ -149,7 +151,7 @@ const InvoiceForm = ({
             <CustomerInputs nextId={nextCustomerId}></CustomerInputs>{" "}
           </AddForm>
         ) : null}
-        <FormGroup
+        <Form.Group
           style={{
             display: !newDelivery ? "block" : "none", // toggle the visbility of an input
           }}
@@ -174,9 +176,8 @@ const InvoiceForm = ({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addDelivery}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addDelivery}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.invoice &&
@@ -193,7 +194,7 @@ const InvoiceForm = ({
             ></DeliveryInputs>
           </AddForm>
         ) : null}
-        <FormGroup
+        <Form.Group
           style={{
             display: !newDiscount ? "block" : "none", // toggle the visbility of an input
           }}
@@ -218,9 +219,8 @@ const InvoiceForm = ({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addDiscount}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addDiscount}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.invoice &&
@@ -234,7 +234,7 @@ const InvoiceForm = ({
             <DiscountInputs nextId={nextDiscountId}></DiscountInputs>
           </AddForm>
         ) : null}
-        <FormGroup
+        <Form.Group
           style={{
             display: !newStatus ? "block" : "none", // toggle the visbility of an input
           }}
@@ -259,9 +259,8 @@ const InvoiceForm = ({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addStatus}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addStatus}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.invoice &&
@@ -275,7 +274,7 @@ const InvoiceForm = ({
             <StatusInputs nextId={nextStatusId}></StatusInputs>
           </AddForm>
         ) : null}
-        <FormGroup
+        <Form.Group
           style={{
             display: !newTransaction ? "block" : "none", // toggle the visbility of an input
           }}
@@ -302,9 +301,8 @@ const InvoiceForm = ({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addTransaction}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addTransaction}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.invoice &&
@@ -334,13 +332,13 @@ const InvoiceForm = ({
                       type="number"
                       value={i}
                       disabled
-                    ></input>
+                    ></Form.Control>
                     {methods.setValue(`items.${i}.invoice_id`, nextInvoiceId)}
                   </Form.Group>
                 </Col>
                 <Col md={5}>
                   {" "}
-                  <FormGroup
+                  <Form.Group
                     style={{
                       display: !newProduct ? "block" : "none", // toggle the visbility of an input
                     }}
@@ -365,9 +363,8 @@ const InvoiceForm = ({
                           );
                         })}
                       </select>
-                      <InputGroupAddon addonType="append">
-                        <Button onClick={addProduct}>+</Button>
-                      </InputGroupAddon>
+
+                      <Button onClick={addProduct}>+</Button>
                     </InputGroup>
                     {errorsForm &&
                       errorsForm.invoice &&
@@ -436,7 +433,9 @@ const InvoiceForm = ({
                 <Col md={2}>
                   {" "}
                   <Form.Group>
-                    <Form.Label htmlFor="invoice_item_stotal">Sous-total</Form.Label>
+                    <Form.Label htmlFor="invoice_item_stotal">
+                      Sous-total
+                    </Form.Label>
                     <Form.Control
                       className="form-control"
                       type="number"
@@ -447,7 +446,7 @@ const InvoiceForm = ({
                       {...methods.register(`items.${i}.total`, {
                         required: true,
                       })}
-                    ></input>
+                    ></Form.Control>
                   </Form.Group>
                 </Col>
                 <Col md={1}>

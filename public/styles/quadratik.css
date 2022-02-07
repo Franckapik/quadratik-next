@@ -41,6 +41,7 @@
 
  .admin {
    background-color:rgb(21, 29, 48) ;
+   min-height: 100vh;
  }
 
  .card {
@@ -56,6 +57,15 @@ font-size: smaller;
 
 .table tr td {
   padding: 1em;
+}
+
+.card-header {
+  background-color: transparent;
+  border: 0;
+}
+
+input, label {
+  margin: 0.3em;;
 }
 
 

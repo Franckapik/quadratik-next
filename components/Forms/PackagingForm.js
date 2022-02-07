@@ -27,7 +27,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               type="text"
               placeholder={nextId}
               disabled
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={10}>
@@ -38,7 +38,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               {...register("packaging.reference", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -51,7 +51,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.length", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -62,7 +62,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.width", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -73,7 +73,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.weight", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={3}>
@@ -84,7 +84,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.depth", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>
@@ -96,7 +96,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.charge", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -107,7 +107,7 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="number"
               {...register("packaging.unit", { required: true })}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
       </Row>

@@ -1,14 +1,12 @@
-import useToggle from "hooks/useToggle";
-import { AddForm } from "layouts/AddForm";
+import useToggle from "../../hooks/useToggle";
+import { AddForm } from "../../layouts/AddForm";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   Alert,
   Button,
   Card,
-  CardTitle,
   Col,
-  Form,
   Form,
   InputGroup,
   InputGroupAddon,
@@ -72,7 +70,7 @@ export default function ProductForm({
                 type="text"
                 placeholder={nextProductId}
                 disabled
-              ></input>
+              ></Form.Control>
             </Form.Group>
           </Col>
           <Col md={4}>
@@ -129,7 +127,7 @@ export default function ProductForm({
           </Col>
         </Row>
 
-        <FormGroup
+        <Form.Group
           style={{
             display: !newCollection ? "block" : "none", // toggle the visbility of an input
           }}
@@ -154,9 +152,8 @@ export default function ProductForm({
                 );
               })}
             </select>
-            <InputGroupAddon addonType="append">
-              <Button onClick={addCollection}>+</Button>
-            </InputGroupAddon>
+
+            <Button onClick={addCollection}>+</Button>
           </InputGroup>
           {errorsForm &&
             errorsForm.product &&
@@ -211,9 +208,8 @@ export default function ProductForm({
                   );
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addPerformance}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addPerformance}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&
@@ -255,9 +251,8 @@ export default function ProductForm({
                   );
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addPackaging}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addPackaging}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&
@@ -299,9 +294,8 @@ export default function ProductForm({
                   );
                 })}
               </select>
-              <InputGroupAddon addonType="append">
-                <Button onClick={addProperty}>+</Button>
-              </InputGroupAddon>
+
+              <Button onClick={addProperty}>+</Button>
             </InputGroup>
             {errorsForm &&
               errorsForm.product &&

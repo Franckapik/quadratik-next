@@ -28,7 +28,7 @@ export const CollectionForm = ({ nextId, errorsForm }) => {
               className="form-control"
               type="text"
               placeholder={nextId}
-            ></input>
+            ></Form.Control>
           </Form.Group>
         </Col>
         <Col md={6}>
@@ -38,7 +38,7 @@ export const CollectionForm = ({ nextId, errorsForm }) => {
             <Form.Control
               className="form-control"
               {...register("collection.col_name", { required: true })}
-            ></input>
+            ></Form.Control>
             {errorsForm &&
               errorsForm.collection &&
               errorsForm.collection.col_name?.type === "required" &&
