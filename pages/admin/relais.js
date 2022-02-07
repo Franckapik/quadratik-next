@@ -18,6 +18,9 @@ import {
   Table,
 } from "react-bootstrap";
 
+import prisma from "../../prisma/prisma";
+import Layout_Admin from "../../layouts/layout_admin";
+
 const Relais = () => {
   const [relaisSelected, setRelaisSelected] = useState(0);
   const [addressSelected, setAddressSelected] = useState(0);
@@ -40,8 +43,10 @@ const Relais = () => {
 
   const { response: addressList } = useGeo(addressTyped);
 
+  const carriersList = 0;
+
   return (
-    <>
+    <Layout_Admin>
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <div className="col">
@@ -192,8 +197,49 @@ const Relais = () => {
           </div>
         </Row>
       </Container>
-    </>
+    </Layout_Admin>
   );
 };
 
 export default Relais;
+
+export async function getServerSideProps(context) {
+  const productList = await prisma.product.findMany({});
+  const customerList = await prisma.customer.findMany({});
+  const collectionList = await prisma.collection.findMany({});
+  const performanceList = await prisma.performance.findMany({});
+  const packagingList = await prisma.packaging.findMany({});
+  const propertyList = await prisma.property.findMany({});
+  const statusList = await prisma.status.findMany({});
+  const itemList = await prisma.item.findMany({});
+  const deliveryList = await prisma.delivery.findMany({});
+  const invoiceList = JSON.parse(
+    JSON.stringify(await prisma.invoice.findMany({}))
+  );
+  const discountList = JSON.parse(
+    JSON.stringify(await prisma.discount.findMany({}))
+  );
+  const transactionList = JSON.parse(
+    JSON.stringify(await prisma.transaction.findMany({}))
+  );
+  const materialList = JSON.parse(
+    JSON.stringify(await prisma.material.findMany({}))
+  );
+  return {
+    props: {
+      productList,
+      customerList,
+      collectionList,
+      performanceList,
+      packagingList,
+      invoiceList,
+      materialList,
+      propertyList,
+      statusList,
+      itemList,
+      transactionList,
+      discountList,
+      deliveryList,
+    },
+  };
+}

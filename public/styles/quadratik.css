@@ -68,6 +68,34 @@ input, label {
   margin: 0.3em;;
 }
 
+.sidebar {
+  position: fixed;
+  top: 25%;
+  background-color: beige;
+  left: 2em;
+  z-index: 1;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  width: 6em;
+}
+
+.header-admin {
+  background-color: beige;
+  z-index: 1;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin: 2em;
+}
+
+.sidebar i {
+  font-size: 2em;
+}
+.sidebar .nav {
+  flex-direction: column;
+  text-align: center;
+}
+
+
 
 
  

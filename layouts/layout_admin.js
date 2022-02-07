@@ -7,14 +7,14 @@ export default function Layout_Admin({ children, title }) {
   return (
     <Container fluid className="admin">
       <Row>
-        <Col xs={2}>
+        <Col className="sidebar">
           <Sidebar></Sidebar>
         </Col>
-        <Col xs={10}>
+        <Col md={{ span: 11, offset: 1 }} className="scrollit col-lg-offset-3">
           <header>
-            <Nav className="justify-content-center align-items-center mt-2">
-              <Nav.Item className="m-3">{/* <UserButton /> */}</Nav.Item>
-              <Nav.Item className="m-3">firstname</Nav.Item>
+            <Nav className=" header-admin justify-content-center align-items-center">
+              <Nav.Item>{/* <UserButton /> */}</Nav.Item>
+              <Nav.Item>Utilisateur confirmé</Nav.Item>
             </Nav>
           </header>
           <main>{children}</main>

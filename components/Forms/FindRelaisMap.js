@@ -2,7 +2,7 @@
 
 import { Map, Marker } from "pigeon-maps";
 import React, { useEffect, useState } from "react";
-import { Card, Col, List, Row } from "react-bootstrap";
+import { Card, Col, Form, Row } from "react-bootstrap";
 const FindRelaisMap = ({
   addressSelected,
   setRelaisSelected,
@@ -19,6 +19,7 @@ const FindRelaisMap = ({
   });
 
   const [serviceState, setServiceState] = useState([]);
+  const serviceList = 0;
 
   //find relais according to map
 
