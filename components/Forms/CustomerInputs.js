@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 const CustomerInputs = ({ nextId }) => {
   const {
@@ -25,58 +25,58 @@ const CustomerInputs = ({ nextId }) => {
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="user_id">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="user_id">
               {" "}
               Id{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("customer.user_id")}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="session_id">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="session_id">
               {" "}
               Session Id{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.session_id")}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_name">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_name">
               {" "}
               Nom{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.name", { required: true, maxLength: 20 })}
             />
             {errors.name?.type === "required" && "Un nom est requis"}
             {errors.name?.type === "maxLength" && "Le nom est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_firstname">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_firstname">
               {" "}
               Prénom{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.firstname", {
@@ -86,18 +86,18 @@ const CustomerInputs = ({ nextId }) => {
             />
             {errors.name?.type === "required" && "Un prénom est requis"}
             {errors.name?.type === "maxLength" && "Le prénom est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_address">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_address">
               {" "}
               Adresse{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.address", {
@@ -107,15 +107,15 @@ const CustomerInputs = ({ nextId }) => {
             />
             {errors.name?.type === "required" && "Une adresse est requise"}
             {errors.name?.type === "maxLength" && "L'adresse est trop longue"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_postal">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_postal">
               {" "}
               Postal{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.postal", { required: true, maxLength: 5 })}
@@ -123,16 +123,16 @@ const CustomerInputs = ({ nextId }) => {
             {errors.name?.type === "required" && "Un code postal est requis"}
             {errors.name?.type === "maxLength" &&
               "Le code postal est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_city">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_city">
               {" "}
               Ville{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.city", { required: true, maxLength: 80 })}
@@ -140,18 +140,18 @@ const CustomerInputs = ({ nextId }) => {
             {errors.name?.type === "required" && "Une ville est requise"}
             {errors.name?.type === "maxLength" &&
               "Le nom de ville est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_mail">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_mail">
               {" "}
               Mail{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.mail", {
@@ -162,16 +162,16 @@ const CustomerInputs = ({ nextId }) => {
             />
             {errors.name?.type === "required" && "Une adresse mail est requise"}
             {errors.name?.type === "pattern" && "L'adresse mail est erronée"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="c_country">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="c_country">
               {" "}
               Pays{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("customer.country", {
@@ -182,7 +182,7 @@ const CustomerInputs = ({ nextId }) => {
             {errors.name?.type === "required" && "Un pays est requis"}
             {errors.name?.type === "maxLength" &&
               "Le nom de pays est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

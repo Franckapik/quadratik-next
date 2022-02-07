@@ -36,7 +36,7 @@ function Dropzone(props) {
   return (
     <Container>
       <div {...getRootProps({ className: "dropzone" })}>
-        <input {...getInputProps()} />
+        <Form.Control {...getInputProps()} />
         {isDragActive ? (
           <Card
             className="bg-teal"

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const PerformanceForm = ({ nextId, errorsForm }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -20,58 +20,62 @@ export const PerformanceForm = ({ nextId, errorsForm }) => {
       <Row form>
         <Col md={2}>
           {" "}
-          <FormGroup>
-            <label htmlFor="perf_ident">Id</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="perf_ident">Id</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
               disabled
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={10}>
           {" "}
-          <FormGroup>
-            <label htmlFor="performance_desc">Description</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="performance_desc">Description</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("performance.desc", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row>
         <Col md={4}>
-          <FormGroup>
-            <label htmlFor="performance_freq_min">Frequence minimum</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="performance_freq_min">
+              Frequence minimum
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("performance.freq_min", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
-          <FormGroup>
-            <label htmlFor="performance_freq_max">Frequence maximum</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="performance_freq_max">
+              Frequence maximum
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("performance.freq_max", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
-          <FormGroup>
-            <label htmlFor="performance_spectre">Spectre</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="performance_spectre">Spectre</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("performance.spectre", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

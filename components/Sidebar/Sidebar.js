@@ -31,7 +31,7 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  FormGroup,
+  Form,
   Form,
   Input,
   InputGroupAddon,

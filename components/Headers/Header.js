@@ -44,7 +44,7 @@ const Header = () => {
                         </span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-danger text-white rounded-circle ">
                           <i className="fas fa-chart-bar" />
                         </div>
                       </Col>
@@ -72,7 +72,7 @@ const Header = () => {
                         <span className="h2 font-weight-bold mb-0">2,356</span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-warning text-white rounded-circle ">
                           <i className="fas fa-chart-pie" />
                         </div>
                       </Col>
@@ -100,7 +100,7 @@ const Header = () => {
                         <span className="h2 font-weight-bold mb-0">924</span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-yellow text-white rounded-circle ">
                           <i className="fas fa-users" />
                         </div>
                       </Col>
@@ -128,7 +128,7 @@ const Header = () => {
                         <span className="h2 font-weight-bold mb-0">49,65%</span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-info text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-info text-white rounded-circle ">
                           <i className="fas fa-percent" />
                         </div>
                       </Col>

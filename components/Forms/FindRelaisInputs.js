@@ -1,4 +1,4 @@
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 const FindRelaisInputs = ({
   errors,
@@ -10,49 +10,49 @@ const FindRelaisInputs = ({
   <>
     <Row form>
       <Col md={4}>
-        <FormGroup>
-          <label className="form-control-label" htmlFor="c_address">
+        <Form.Group>
+          <Form.Label className="form-control-label" htmlFor="c_address">
             {" "}
             Adresse{" "}
-          </label>
-          <input
+          </Form.Label>
+          <Form.Control
             className="form-control"
             type="text"
             {...register("relais.address", { required: true, maxLength: 150 })}
           />
           {errors.name?.type === "required" && "Une adresse est requise"}
           {errors.name?.type === "maxLength" && "L'adresse est trop longue"}
-        </FormGroup>
+        </Form.Group>
       </Col>
       <Col md={4}>
-        <FormGroup>
-          <label className="form-control-label" htmlFor="c_postal">
+        <Form.Group>
+          <Form.Label className="form-control-label" htmlFor="c_postal">
             {" "}
             Postal{" "}
-          </label>
-          <input
+          </Form.Label>
+          <Form.Control
             className="form-control"
             type="text"
             {...register("relais.postal", { required: true, maxLength: 5 })}
           />
           {errors.name?.type === "required" && "Un code postal est requis"}
           {errors.name?.type === "maxLength" && "Le code postal est trop long"}
-        </FormGroup>
+        </Form.Group>
       </Col>
       <Col md={4}>
-        <FormGroup>
-          <label className="form-control-label" htmlFor="c_city">
+        <Form.Group>
+          <Form.Label className="form-control-label" htmlFor="c_city">
             {" "}
             City{" "}
-          </label>
-          <input
+          </Form.Label>
+          <Form.Control
             className="form-control"
             type="text"
             {...register("relais.city", { required: true, maxLength: 80 })}
           />
           {errors.name?.type === "required" && "Une ville est requise"}
           {errors.name?.type === "maxLength" && "Le nom de ville est trop long"}
-        </FormGroup>
+        </Form.Group>
       </Col>
     </Row>
   </>

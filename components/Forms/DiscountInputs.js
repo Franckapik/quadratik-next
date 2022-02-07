@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const DiscountInputs = ({ nextId }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -19,46 +19,46 @@ export const DiscountInputs = ({ nextId }) => {
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_id">Identifiant Discount</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_id">Identifiant Discount</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_red">Reduction (%)</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_red">Reduction (%)</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("discount.reduction", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_code">Code</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_code">Code</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("discount.code", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
-          <FormGroup>
-            <label htmlFor="d_exp">Date d'expiration</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_exp">Date d'expiration</Form.Label>
+            <Form.Control
               className="form-control"
               type="date"
               {...register("discount.expiration", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

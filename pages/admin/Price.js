@@ -16,7 +16,7 @@ import {
   Col,
   Container,
   CustomInput,
-  FormGroup,
+  Form,
   Label,
   List,
   ListGroup,
@@ -186,8 +186,10 @@ const Price = () => {
                   onChange={(e) => setMatSelected(e)}
                   options={materialList}
                 ></Select>
-                <label htmlFor="collection_name">Frais additionnels</label>
-                <input
+                <Form.Label htmlFor="collection_name">
+                  Frais additionnels
+                </Form.Label>
+                <Form.Control
                   className="form-control"
                   type="number"
                   value={fraisAd}
@@ -282,8 +284,10 @@ const Price = () => {
                 ) : (
                   "Pas de produits disponibles"
                 )}
-                <label htmlFor="collection_name">Perte de découpe</label>
-                <input
+                <Form.Label htmlFor="collection_name">
+                  Perte de découpe
+                </Form.Label>
+                <Form.Control
                   className="form-control"
                   type="number"
                   value={perte}
@@ -327,16 +331,16 @@ const Price = () => {
             <Card>
               <Card.Header>Prix</Card.Header>
               <Card.Body>
-                <label htmlFor="collection_name">Marge (ratio)</label>
-                <input
+                <Form.Label htmlFor="collection_name">Marge (ratio)</Form.Label>
+                <Form.Control
                   className="form-control"
                   type="number"
                   value={marge}
                   step={0.1}
                   onChange={(e) => setMarge(e.target.value)}
                 ></input>
-                <label htmlFor="collection_name">Taxe Urssaf</label>
-                <input
+                <Form.Label htmlFor="collection_name">Taxe Urssaf</Form.Label>
+                <Form.Control
                   className="form-control"
                   type="number"
                   value={taxe}
@@ -386,7 +390,7 @@ const Price = () => {
             <Card>
               <Card.Header>Catalogues sur le serveur</Card.Header>
               <Card.Body>
-                <FormGroup>
+                <Form.Group>
                   <Label for="exampleCustomFileBrowser">
                     Ajouter un catalogue
                   </Label>
@@ -397,7 +401,7 @@ const Price = () => {
                     label="Choisir un fichier sur un dossier local"
                     onChange={onChangeHandler}
                   />
-                </FormGroup>{" "}
+                </Form.Group>{" "}
                 <List type="inline">
                   {uploadedList &&
                     uploadedList.map((a, i) => (
@@ -477,7 +481,7 @@ const Price = () => {
         </Row>
         <Row className="mt-5">
           <Col>
-            <Card className="bg-default shadow">
+            <Card className="bg-default ">
               <Card.Header className="bg-transparent border-0">
                 <h3 className="text-white mb-0">Les matériaux favoris</h3>
               </Card.Header>
@@ -488,7 +492,7 @@ const Price = () => {
                   className="align-items-center table-dark table-flush"
                   responsive
                 >
-                  <thead className="thead-dark">
+                  <thead>
                     <tr>
                       <th scope="col">
                         <i className="far fa-trash-alt" />

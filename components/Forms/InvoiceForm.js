@@ -9,7 +9,7 @@ import {
   Card,
   Col,
   Form,
-  FormGroup,
+  Form,
   InputGroup,
   InputGroupAddon,
   Row,
@@ -74,38 +74,38 @@ const InvoiceForm = ({
         <Row form>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="invoice_ident">Identifiant facture</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="invoice_ident">Identifiant facture</Form.Label>
+              <Form.Control
                 className="form-control"
                 type="text"
                 placeholder={nextInvoiceId}
                 disabled
               ></input>
-            </FormGroup>
+            </Form.Group>
           </Col>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="invoice_nb">Numero de commande</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="invoice_nb">Numero de commande</Form.Label>
+              <Form.Control
                 className="form-control"
                 type="text"
                 placeholder={order_number}
                 disabled
               ></input>
-            </FormGroup>
+            </Form.Group>
           </Col>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="invoice_order_date">Date de commande</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="invoice_order_date">Date de commande</Form.Label>
+              <Form.Control
                 className="form-control"
                 type="date"
                 {...methods.register("invoice.order_date", { required: true })}
               ></input>
-            </FormGroup>
+            </Form.Group>
           </Col>
         </Row>
         <FormGroup
@@ -113,7 +113,7 @@ const InvoiceForm = ({
             display: !newClient ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="collection_id">Client</label>
+          <Form.Label htmlFor="collection_id">Client</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -142,7 +142,7 @@ const InvoiceForm = ({
             errorsForm.invoice.user_id?.type === "required" && (
               <Alert color="warning">Un client est requis</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newClient ? (
           <AddForm toggleFunction={addClient} title="Client">
             {" "}
@@ -154,7 +154,7 @@ const InvoiceForm = ({
             display: !newDelivery ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="delivery_id">Livraison</label>
+          <Form.Label htmlFor="delivery_id">Livraison</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -183,7 +183,7 @@ const InvoiceForm = ({
             errorsForm.invoice.delivery_id?.type === "required" && (
               <Alert color="warning">Une livraison est requise</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newDelivery ? (
           <AddForm toggleFunction={addDelivery} title="Livraison">
             {" "}
@@ -198,7 +198,7 @@ const InvoiceForm = ({
             display: !newDiscount ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="discount_id">Remise</label>
+          <Form.Label htmlFor="discount_id">Remise</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -227,7 +227,7 @@ const InvoiceForm = ({
             errorsForm.invoice.discount_id?.type === "required" && (
               <Alert color="warning">Une remise est requise</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newDiscount ? (
           <AddForm toggleFunction={addDiscount} title="Réduction">
             {" "}
@@ -239,7 +239,7 @@ const InvoiceForm = ({
             display: !newStatus ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="status_id">Statut</label>
+          <Form.Label htmlFor="status_id">Statut</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -268,7 +268,7 @@ const InvoiceForm = ({
             errorsForm.invoice.status_id?.type === "required" && (
               <Alert color="warning">Un statut est requis</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newStatus ? (
           <AddForm toggleFunction={addStatus} title="Statut">
             {" "}
@@ -280,7 +280,7 @@ const InvoiceForm = ({
             display: !newTransaction ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="status_id">Transaction</label>
+          <Form.Label htmlFor="status_id">Transaction</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -311,7 +311,7 @@ const InvoiceForm = ({
             errorsForm.invoice.transaction_id?.type === "required" && (
               <Alert color="warning">Une transaction est requise</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newTransaction ? (
           <AddForm toggleFunction={addTransaction} title="Transaction">
             {" "}
@@ -327,16 +327,16 @@ const InvoiceForm = ({
               <Row form>
                 <Col md={1}>
                   {" "}
-                  <FormGroup>
-                    <label htmlFor="invoice_item_id">Id</label>
-                    <input
+                  <Form.Group>
+                    <Form.Label htmlFor="invoice_item_id">Id</Form.Label>
+                    <Form.Control
                       className="form-control"
                       type="number"
                       value={i}
                       disabled
                     ></input>
                     {methods.setValue(`items.${i}.invoice_id`, nextInvoiceId)}
-                  </FormGroup>
+                  </Form.Group>
                 </Col>
                 <Col md={5}>
                   {" "}
@@ -345,7 +345,7 @@ const InvoiceForm = ({
                       display: !newProduct ? "block" : "none", // toggle the visbility of an input
                     }}
                   >
-                    <label htmlFor="status_id">Produit</label>
+                    <Form.Label htmlFor="status_id">Produit</Form.Label>
                     <InputGroup>
                       <select
                         className="form-control"
@@ -374,15 +374,15 @@ const InvoiceForm = ({
                       errorsForm.invoice.status_id?.type === "required" && (
                         <Alert color="warning">Un statut est requis</Alert>
                       )}
-                  </FormGroup>
+                  </Form.Group>
                 </Col>
                 <Col md={2}>
                   {" "}
-                  <FormGroup>
-                    <label htmlFor="invoice_item_price">Prix</label>
+                  <Form.Group>
+                    <Form.Label htmlFor="invoice_item_price">Prix</Form.Label>
                     <Controller
                       render={({ value, onChange, ...restProps }) => (
-                        <input
+                        <Form.Control
                           className="form-control"
                           type="number"
                           value={value}
@@ -404,15 +404,15 @@ const InvoiceForm = ({
                       name={`items.${i}.qty`}
                       control={methods.control}
                     />
-                  </FormGroup>
+                  </Form.Group>
                 </Col>
                 <Col md={1}>
                   {" "}
-                  <FormGroup>
-                    <label htmlFor="invoice_item_qty">Quantité</label>
+                  <Form.Group>
+                    <Form.Label htmlFor="invoice_item_qty">Quantité</Form.Label>
                     <Controller
                       render={({ value, onChange, ...restProps }) => (
-                        <input
+                        <Form.Control
                           className="form-control"
                           type="number"
                           value={value}
@@ -431,13 +431,13 @@ const InvoiceForm = ({
                       name={`items.${i}.qty`}
                       control={methods.control}
                     />
-                  </FormGroup>
+                  </Form.Group>
                 </Col>
                 <Col md={2}>
                   {" "}
-                  <FormGroup>
-                    <label htmlFor="invoice_item_stotal">Sous-total</label>
-                    <input
+                  <Form.Group>
+                    <Form.Label htmlFor="invoice_item_stotal">Sous-total</Form.Label>
+                    <Form.Control
                       className="form-control"
                       type="number"
                       value={
@@ -448,10 +448,10 @@ const InvoiceForm = ({
                         required: true,
                       })}
                     ></input>
-                  </FormGroup>
+                  </Form.Group>
                 </Col>
                 <Col md={1}>
-                  <label htmlFor="invoice_item_stotal">del</label>
+                  <Form.Label htmlFor="invoice_item_stotal">del</Form.Label>
 
                   <Button
                     onClick={() => {

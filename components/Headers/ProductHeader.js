@@ -48,7 +48,7 @@ const ProductHeader = ({ products, collections }) => {
                         </span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-info text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-info text-white rounded-circle ">
                           <i className="fas fa-chart-pie" />
                         </div>
                       </Col>
@@ -72,7 +72,7 @@ const ProductHeader = ({ products, collections }) => {
                         </span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-warning text-white rounded-circle ">
                           <i className="fas fa-layer-group" />
                         </div>
                       </Col>
@@ -96,7 +96,7 @@ const ProductHeader = ({ products, collections }) => {
                         </span>
                       </div>
                       <Col className="col-auto">
-                        <div className="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <div className="icon icon-shape bg-danger text-white rounded-circle ">
                           <i className="ni ni-chart-bar-32" />
                         </div>
                       </Col>

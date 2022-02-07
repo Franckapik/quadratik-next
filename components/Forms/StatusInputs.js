@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const StatusInputs = ({ nextId }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -20,25 +20,25 @@ export const StatusInputs = ({ nextId }) => {
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="s_id">Identifiant Statut</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="s_id">Identifiant Statut</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="s_msg">Message de statut</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="s_msg">Message de statut</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("status.status_msg", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

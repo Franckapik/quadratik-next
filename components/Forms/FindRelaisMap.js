@@ -48,7 +48,7 @@ const FindRelaisMap = ({
   return (
     <Row>
       <Col>
-        <Card className="bg-default shadow">
+        <Card className="bg-default ">
           <Card.Body>
             <Map
               height={500}
@@ -92,7 +92,7 @@ const FindRelaisMap = ({
         className="p-0 mt-5 bg-transparent"
       >
         <Card>
-          <input
+          <Form.Control
             className="form-control p-0"
             type="text"
             placeholder={addressSelected.input}

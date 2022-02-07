@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const ParcelInputs = ({
   register,
@@ -13,194 +13,196 @@ export const ParcelInputs = ({
       <Row form>
         <Col md={2}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_house_number">Numero de rue</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_house_number">Numero de rue</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.house_number", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_address">Adresse</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_address">Adresse</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("parcel.address", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={2}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_postal">Code postal</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_postal">Code postal</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.postal_code", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={2}>
-          <FormGroup>
-            <label htmlFor="p_city">Ville</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_city">Ville</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("parcel.city", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p-country">Pays</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p-country">Pays</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("parcel.country", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_mail">Email</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_mail">Email</Form.Label>
+            <Form.Control
               className="form-control"
               type="email"
               {...register("parcel.email", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_phone">Téléphone</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_phone">Téléphone</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.telephone", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_weight">Poids</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_weight">Poids</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.weight", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_length">Longueur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_length">Longueur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.length", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_width">Largeur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_width">Largeur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.width", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_height">Hauteur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_height">Hauteur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.height", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_order">Numero de commande</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_order">Numero de commande</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("parcel.order_number")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_assured">
+          <Form.Group>
+            <Form.Label htmlFor="p_assured">
               Valeur assurée{" "}
               <span style={{ fontSize: "10px" }}>(multiple de 100)</span>{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.insured_value")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_amount">Valeur totale de commande</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p_amount">
+              Valeur totale de commande
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.total_order_value")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p-qty">Quantité de colis</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p-qty">Quantité de colis</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.quantity", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p-qty">Point Relais (id)</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="p-qty">Point Relais (id)</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("parcel.to_service_point")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="p_ship_method">Transporteur</label>
+          <Form.Group>
+            <Form.Label htmlFor="p_ship_method">Transporteur</Form.Label>
             <select
               className="form-control"
               type="date"
@@ -212,7 +214,7 @@ export const ParcelInputs = ({
               <option value="maison">Maison</option>
               <option value="entreprise">Entreprise</option>
             </select>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

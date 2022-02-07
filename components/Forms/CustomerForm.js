@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row } from "react-bootstrap";
 import { FormProvider, useForm } from "react-hook-form";
 
 import CustomerInputs from "./CustomerInputs";
@@ -19,7 +19,7 @@ const CustomerForm = ({ customerList }) => {
     <FormProvider {...methods}>
       <Form onSubmit={methods.handleSubmit(handleRegistration, handleError)}>
         <CustomerInputs></CustomerInputs>
-        <Button>+</Button>
+        <Button type="submit">Ajouter</Button>
       </Form>
     </FormProvider>
   );

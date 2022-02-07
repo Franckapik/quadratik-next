@@ -65,9 +65,9 @@ const Autocomplete = ({ suggestions, input, setInput }) => {
   };
   return (
     <>
-      <FormGroup>
+      <Form.Group>
         {" "}
-        <input
+        <Form.Control
           className="form-control"
           type="text"
           onChange={onChange}
@@ -75,7 +75,7 @@ const Autocomplete = ({ suggestions, input, setInput }) => {
           value={input}
         />
         {renderAutocomplete()}
-      </FormGroup>
+      </Form.Group>
     </>
   );
 };

@@ -5,7 +5,7 @@ export const List = ({ data, name }) => {
   return (
     <Row className="mt-5">
       <div className="col">
-        <Card className="bg-default shadow">
+        <Card className="bg-default ">
           <Card.Header className="bg-transparent border-0">
             <h3 className="text-white mb-0"> Les {name}</h3>
           </Card.Header>
@@ -13,7 +13,7 @@ export const List = ({ data, name }) => {
             className="align-items-center table-dark table-flush"
             responsive
           >
-            <thead className="thead-dark">
+            <thead>
               <tr>
                 {Object.keys(data[0]).map((a, i) => {
                   return (

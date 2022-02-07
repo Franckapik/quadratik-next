@@ -17,9 +17,9 @@ const ModalBox = ({
       size="xl"
     >
       <div className="modal-body pb-0">
-        <Card className="shadow">
+        <Card>
           {!noheader ? (
-            <Card.Header className="bg-transparent">
+            <Card.Header>
               <h3 className="mb-0">{title}</h3>
               <button
                 aria-label="Close"

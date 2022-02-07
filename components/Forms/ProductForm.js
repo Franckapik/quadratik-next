@@ -9,7 +9,7 @@ import {
   CardTitle,
   Col,
   Form,
-  FormGroup,
+  Form,
   InputGroup,
   InputGroupAddon,
   Row,
@@ -65,21 +65,21 @@ export default function ProductForm({
         <Row form>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="prod_ident">Identifiant produit</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="prod_ident">Identifiant produit</Form.Label>
+              <Form.Control
                 className="form-control"
                 type="text"
                 placeholder={nextProductId}
                 disabled
               ></input>
-            </FormGroup>
+            </Form.Group>
           </Col>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="product_name">Nom</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="product_name">Nom</Form.Label>
+              <Form.Control
                 className="form-control"
                 {...register("product.name", { required: true, maxLength: 20 })}
               />
@@ -95,13 +95,13 @@ export default function ProductForm({
                 errorsForm.product.name?.type === "maxLength" && (
                   <Alert color="warning">Le nom est trop long</Alert>
                 )}
-            </FormGroup>
+            </Form.Group>
           </Col>
           <Col md={4}>
             {" "}
-            <FormGroup>
-              <label htmlFor="product_price">Prix</label>
-              <input
+            <Form.Group>
+              <Form.Label htmlFor="product_price">Prix</Form.Label>
+              <Form.Control
                 className="form-control"
                 type="number"
                 {...register("product.price", {
@@ -125,7 +125,7 @@ export default function ProductForm({
                 errorsForm.product.price?.type === "max" && (
                   <Alert color="warning">Prix trop important</Alert>
                 )}
-            </FormGroup>
+            </Form.Group>
           </Col>
         </Row>
 
@@ -134,7 +134,7 @@ export default function ProductForm({
             display: !newCollection ? "block" : "none", // toggle the visbility of an input
           }}
         >
-          <label htmlFor="collection_id">Collection</label>
+          <Form.Label htmlFor="collection_id">Collection</Form.Label>
           <InputGroup>
             <select
               className="form-control"
@@ -163,7 +163,7 @@ export default function ProductForm({
             errorsForm.product.collection_id?.type === "required" && (
               <Alert color="warning">Une collection est requise</Alert>
             )}
-        </FormGroup>
+        </Form.Group>
         {newCollection ? (
           <AddForm toggleFunction={addCollection} title="Collection">
             {" "}
@@ -171,14 +171,14 @@ export default function ProductForm({
           </AddForm>
         ) : null}
 
-        <FormGroup>
-          <label htmlFor="product_img">Image</label>
-          <input
+        <Form.Group>
+          <Form.Label htmlFor="product_img">Image</Form.Label>
+          <Form.Control
             className="form-control"
             type="file"
             {...register("product.img")}
           />
-        </FormGroup>
+        </Form.Group>
         {newPerformance ? (
           <AddForm toggleFunction={addPerformance} title="Performance">
             {" "}
@@ -189,8 +189,8 @@ export default function ProductForm({
             />
           </AddForm>
         ) : (
-          <FormGroup>
-            <label htmlFor="product_perf">Performance</label>
+          <Form.Group>
+            <Form.Label htmlFor="product_perf">Performance</Form.Label>
             <InputGroup>
               <select
                 className="form-control"
@@ -220,7 +220,7 @@ export default function ProductForm({
               errorsForm.product.performance_id?.type === "required" && (
                 <Alert color="warning">Une performance est requise</Alert>
               )}
-          </FormGroup>
+          </Form.Group>
         )}
 
         {newPackaging ? (
@@ -233,8 +233,8 @@ export default function ProductForm({
             />
           </AddForm>
         ) : (
-          <FormGroup>
-            <label htmlFor="product_pack">Packaging</label>
+          <Form.Group>
+            <Form.Label htmlFor="product_pack">Packaging</Form.Label>
             <InputGroup>
               <select
                 className="form-control"
@@ -264,7 +264,7 @@ export default function ProductForm({
               errorsForm.product.packaging_id?.type === "required" && (
                 <Alert color="warning">Un packaging est requis</Alert>
               )}
-          </FormGroup>
+          </Form.Group>
         )}
 
         {newProperty ? (
@@ -277,8 +277,8 @@ export default function ProductForm({
             />
           </AddForm>
         ) : (
-          <FormGroup>
-            <label htmlFor="product_prop">Propriétés</label>
+          <Form.Group>
+            <Form.Label htmlFor="product_prop">Propriétés</Form.Label>
             <InputGroup>
               <select
                 className="form-control"
@@ -308,14 +308,14 @@ export default function ProductForm({
               errorsForm.product.property_id?.type === "required" && (
                 <Alert color="warning">Une propriété est requise</Alert>
               )}
-          </FormGroup>
+          </Form.Group>
         )}
 
         <Row form>
           <Col md={6}>
             {" "}
-            <FormGroup>
-              <label htmlFor="product_stock">Stock</label>
+            <Form.Group>
+              <Form.Label htmlFor="product_stock">Stock</Form.Label>
               <select
                 className="form-control"
                 type="select"
@@ -325,12 +325,12 @@ export default function ProductForm({
                 <option>En cours de fabrication</option>
                 <option>En rupture de stock</option>
               </select>
-            </FormGroup>
+            </Form.Group>
           </Col>
           <Col md={6}>
             {" "}
-            <FormGroup>
-              <label htmlFor="product_publish">Publication</label>
+            <Form.Group>
+              <Form.Label htmlFor="product_publish">Publication</Form.Label>
               <select
                 className="form-control"
                 type="select"
@@ -339,7 +339,7 @@ export default function ProductForm({
                 <option value="true">Publication en boutique</option>
                 <option value="false">Stockage caché</option>
               </select>
-            </FormGroup>
+            </Form.Group>
           </Col>
         </Row>
 

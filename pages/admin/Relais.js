@@ -12,7 +12,7 @@ import {
   Col,
   Container,
   Form,
-  FormGroup,
+  Form,
   ListGroup,
   ListGroupItem,
   Row,
@@ -46,7 +46,7 @@ const Relais = () => {
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <div className="col">
-            <Card className="bg-default shadow">
+            <Card className="bg-default ">
               <Card.Header className="bg-transparent border-0">
                 <h3 className="text-white mb-0">
                   Liste des transporteurs disponibles (carriers)
@@ -77,18 +77,21 @@ const Relais = () => {
         </Row>
         <Row className="mt-5">
           <div className="col">
-            <Card className="shadow">
+            <Card>
               <Card.Header className="bg-transparent border-0">
                 <h3 className="mb-0">Rechercher un relais</h3>
               </Card.Header>
               <Card.Body>
                 <Form onSubmit={handleSubmit(handleRegistration, handleError)}>
-                  <FormGroup>
-                    <label className="form-control-label" htmlFor="r_address">
+                  <Form.Group>
+                    <Form.Label
+                      className="form-control-label"
+                      htmlFor="r_address"
+                    >
                       {" "}
                       Adresse recherchée{" "}
-                    </label>
-                    <input
+                    </Form.Label>
+                    <Form.Control
                       className="form-control"
                       type="text"
                       {...register("relais.input")}
@@ -97,7 +100,7 @@ const Relais = () => {
                       "Une adresse est requise"}
                     {errors.name?.type === "maxLength" &&
                       "L'adresse est trop longue"}
-                  </FormGroup>
+                  </Form.Group>
                   <ListGroup>
                     {addressList &&
                       addressList.map((a, i) => (
@@ -135,7 +138,7 @@ const Relais = () => {
         ></FindRelaisMap>
         <Row className="mt-5">
           <div className="col">
-            <Card className="shadow">
+            <Card>
               <Card.Header className="bg-transparent border-0">
                 <h3 className="mb-0">Relais selectionné</h3>
               </Card.Header>

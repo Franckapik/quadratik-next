@@ -4,7 +4,7 @@ import React from "react";
 import {
   Button,
   Card,
-  FormGroup,
+  Form,
   Form,
   Input,
   Container,
@@ -28,7 +28,7 @@ const Profile = ({ businessList }) => {
       <Container className="mt--9" fluid>
         <Row>
           <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
-            <Card className="card-profile shadow">
+            <Card className="card-profile ">
               <Row className="justify-content-center">
                 <Col className="order-lg-2" lg="3">
                   <div className="card-profile-image">
@@ -68,7 +68,7 @@ const Profile = ({ businessList }) => {
           </Col>
           {b ? (
             <Col className="order-xl-1" xl="8">
-              <Card className="bg-secondary shadow">
+              <Card className="bg-secondary ">
                 <Card.Header className="bg-white border-0">
                   <Row className="align-items-center">
                     <Col xs="8">
@@ -94,13 +94,13 @@ const Profile = ({ businessList }) => {
                     <div className="pl-lg-4">
                       <Row>
                         <Col lg="6">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-first-name"
                             >
                               Responsable
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               defaultValue={b.owner}
@@ -108,18 +108,18 @@ const Profile = ({ businessList }) => {
                               placeholder="First name"
                               type="text"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                       </Row>
                       <Row>
                         <Col lg="6">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-username"
                             >
                               Téléphone
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               defaultValue={b.tel}
@@ -127,23 +127,23 @@ const Profile = ({ businessList }) => {
                               placeholder="Username"
                               type="text"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                         <Col lg="6">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-email"
                             >
                               Adresse mail
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               id="input-email"
                               placeholder={b.mail}
                               type="email"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                       </Row>
                     </div>
@@ -153,13 +153,13 @@ const Profile = ({ businessList }) => {
                     <div className="pl-lg-4">
                       <Row>
                         <Col md="12">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-address"
                             >
                               Addresse
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               defaultValue={b.address}
@@ -167,18 +167,18 @@ const Profile = ({ businessList }) => {
                               placeholder="Home Address"
                               type="text"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                       </Row>
                       <Row>
                         <Col lg="4">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-city"
                             >
                               Ville
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               defaultValue={b.city}
@@ -186,16 +186,16 @@ const Profile = ({ businessList }) => {
                               placeholder="City"
                               type="text"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                         <Col lg="4">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-country"
                             >
                               Pays
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               defaultValue={b.country}
@@ -203,23 +203,23 @@ const Profile = ({ businessList }) => {
                               placeholder="France"
                               type="text"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                         <Col lg="4">
-                          <FormGroup>
-                            <label
+                          <Form.Group>
+                            <Form.Label
                               className="form-control-label"
                               htmlFor="input-country"
                             >
                               Code Postal
-                            </label>
+                            </Form.Label>
                             <Form.Control
                               className="form-control-alternative"
                               id="input-postal-code"
                               placeholder={b.postal}
                               type="number"
                             />
-                          </FormGroup>
+                          </Form.Group>
                         </Col>
                       </Row>
                     </div>
@@ -229,92 +229,92 @@ const Profile = ({ businessList }) => {
                       L'entreprise
                     </h6>
                     <div className="pl-lg-4">
-                      <FormGroup>
+                      <Form.Group>
                         <Row>
                           <Col lg="4">
-                            <FormGroup>
-                              <label
+                            <Form.Group>
+                              <Form.Label
                                 className="form-control-label"
                                 htmlFor="input-siret"
                               >
                                 Siret
-                              </label>
+                              </Form.Label>
                               <Form.Control
                                 className="form-control-alternative"
                                 id="input-siret-code"
                                 value={b.siret}
                                 type="text"
                               />
-                            </FormGroup>
+                            </Form.Group>
                           </Col>
                           <Col lg="4">
-                            <FormGroup>
-                              <label
+                            <Form.Group>
+                              <Form.Label
                                 className="form-control-label"
                                 htmlFor="input-sirene"
                               >
                                 Sirene
-                              </label>
+                              </Form.Label>
                               <Form.Control
                                 className="form-control-alternative"
                                 id="input-sirene-code"
                                 value={b.sirene}
                                 type="text"
                               />
-                            </FormGroup>
+                            </Form.Group>
                           </Col>
                           <Col lg="4">
-                            <FormGroup>
-                              <label
+                            <Form.Group>
+                              <Form.Label
                                 className="form-control-label"
                                 htmlFor="input-ape"
                               >
                                 Ape
-                              </label>
+                              </Form.Label>
                               <Form.Control
                                 className="form-control-alternative"
                                 id="input-ape-code"
                                 value={b.ape}
                                 type="text"
                               />
-                            </FormGroup>
+                            </Form.Group>
                           </Col>
                         </Row>
                         <Row>
                           <Col lg="8">
-                            <FormGroup>
-                              <label
+                            <Form.Group>
+                              <Form.Label
                                 className="form-control-label"
                                 htmlFor="input-iban"
                               >
                                 Iban
-                              </label>
+                              </Form.Label>
                               <Form.Control
                                 className="form-control-alternative"
                                 id="input-iban-code"
                                 value={b.iban}
                                 type="text"
                               />
-                            </FormGroup>
+                            </Form.Group>
                           </Col>
                           <Col lg="4">
-                            <FormGroup>
-                              <label
+                            <Form.Group>
+                              <Form.Label
                                 className="form-control-label"
                                 htmlFor="input-iban"
                               >
                                 Bic
-                              </label>
+                              </Form.Label>
                               <Form.Control
                                 className="form-control-alternative"
                                 id="input-iban-code"
                                 value={b.bic}
                                 type="text"
                               />
-                            </FormGroup>
+                            </Form.Group>
                           </Col>
                         </Row>
-                      </FormGroup>
+                      </Form.Group>
                     </div>
                   </Form>
                 </Card.Body>

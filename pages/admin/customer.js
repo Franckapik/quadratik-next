@@ -22,8 +22,6 @@ const Customers = ({ customer }) => {
 
   useEffect(() => {
     customer && customer.length && setUserState(customer);
-    console.log(customer);
-    console.log(userState);
   }, [customer]);
 
   const removeCustomer = (id) => {
@@ -33,16 +31,16 @@ const Customers = ({ customer }) => {
 
   return (
     <Layout_Admin>
-      <Container className="mt--7" fluid>
-        <Row className="mt-5">
-          <div className="col">
+      <Container fluid>
+        <Row>
+          <Col>
             <Card>
               <Card.Header className="bg-transparent border-0">
                 <h3>Liste des clients</h3>
               </Card.Header>
               {userState && userState.length && userState.length > 0 ? (
-                <Table className="align-items-center table-flush" responsive>
-                  <thead className="thead-dark">
+                <Table responsive>
+                  <thead>
                     <tr>
                       <th scope="col">
                         <i className="far fa-trash-alt" />
@@ -75,7 +73,13 @@ const Customers = ({ customer }) => {
                             <i className="far fa-edit text-info"></i>
                           </td>
                           {Object.keys(a).map((b, c) => {
-                            return <td key={b + c}>{a[b]}</td>;
+                            return (
+                              <td key={b + c}>
+                                {a[b].length < 30 || !a[b].length
+                                  ? a[b]
+                                  : a[b].slice(0, 10) + "[...]"}
+                              </td>
+                            );
                           })}
                         </tr>
                       );
@@ -86,12 +90,12 @@ const Customers = ({ customer }) => {
                 "Aucun client existant"
               )}
             </Card>
-          </div>
+          </Col>
         </Row>
         <Row className="mt-5">
           <Col>
-            <Card className="shadow">
-              <Card.Header className="bg-transparent">
+            <Card>
+              <Card.Header>
                 <h3 className="mb-0">Ajouter un client</h3>
               </Card.Header>
               <Card.Body>
@@ -127,8 +131,8 @@ const Customers = ({ customer }) => {
           </button>
         </div>
         <div className="modal-body">
-          <Card className="shadow">
-            <Card.Header className="bg-transparent">
+          <Card>
+            <Card.Header>
               <h3 className="mb-0">Modification du produit</h3>
             </Card.Header>
             <Card.Body>

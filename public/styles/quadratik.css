@@ -38,3 +38,26 @@
   letter-spacing: 0.2em;
    column-span: all;
  }
+
+ .admin {
+   background-color:rgb(21, 29, 48) ;
+ }
+
+ .card {
+   background-color: rgb(41, 47, 69) ;
+   color: azure;
+   padding: 1em;
+ }
+
+ .table {
+   color: azure;
+font-size: smaller; 
+}
+
+.table tr td {
+  padding: 1em;
+}
+
+
+
+ 

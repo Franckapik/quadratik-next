@@ -24,7 +24,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Form,
-  FormGroup,
+  Form,
   InputGroupAddon,
   InputGroupText,
   Input,
@@ -56,7 +56,7 @@ const AdminNavbar = (props) => {
                 </InputGroupAddon>
                 <Input placeholder="Search" type="text" />
               </InputGroup>
-            </FormGroup>
+            </Form.Group>
           </Form>
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>

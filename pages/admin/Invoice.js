@@ -65,7 +65,7 @@ const Orders = () => {
         {/* Dark table */}
         <Row className="mt-5">
           <Col>
-            <Card className="bg-default shadow">
+            <Card className="bg-default ">
               <Card.Header className="bg-transparent border-0">
                 <h3 className="text-white mb-0">Les commandes</h3>
               </Card.Header>
@@ -73,7 +73,7 @@ const Orders = () => {
                 className="align-items-center table-dark table-flush"
                 responsive
               >
-                <thead className="thead-dark">
+                <thead>
                   <tr>
                     <th scope="col">
                       <i className="far fa-trash-alt" />
@@ -132,8 +132,8 @@ const Orders = () => {
         </Row>
         <Row className="mt-5">
           <Col>
-            <Card className="shadow">
-              <Card.Header className="bg-transparent">
+            <Card>
+              <Card.Header>
                 <h3 className="mb-0">Ajouter un devis/facture</h3>
               </Card.Header>
               <Card.Body>

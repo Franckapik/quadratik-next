@@ -23,7 +23,7 @@ const Parcel = ({ invoiceList }) => {
       <Container className="mt--7" fluid>
         <Row className="mt-5">
           <div className="col">
-            <Card className="bg-default shadow">
+            <Card className="bg-default ">
               <Card.Header className="bg-transparent border-0">
                 <h3 className="text-white mb-0">
                   Liste des transporteurs disponibles (carriers)
@@ -54,7 +54,7 @@ const Parcel = ({ invoiceList }) => {
         </Row>
         <Row className="mt-5">
           <div className="col">
-            <Card className="shadow">
+            <Card>
               <Card.Header className="bg-transparent border-0">
                 <h3 className="mb-0">Envoyer un colis</h3>
               </Card.Header>
@@ -73,7 +73,7 @@ const Parcel = ({ invoiceList }) => {
         </Row>
         <Row className="mt-5">
           <div className="col">
-            <Card className="shadow">
+            <Card>
               <Card.Header className="bg-transparent border-0">
                 <h3 className="mb-0">Les colis importés</h3>
               </Card.Header>
@@ -83,7 +83,7 @@ const Parcel = ({ invoiceList }) => {
                     className="align-items-center table-dark table-flush"
                     responsive
                   >
-                    <thead className="thead-dark">
+                    <thead>
                       <tr>
                         <th scope="col">Destinataire</th>
                         <th scope="col">Id</th>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const CollectionForm = ({ nextId, errorsForm }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -20,20 +20,22 @@ export const CollectionForm = ({ nextId, errorsForm }) => {
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="collection_name">Identifiant Collection</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="collection_name">
+              Identifiant Collection
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="collection_name">Nom</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="collection_name">Nom</Form.Label>
+            <Form.Control
               className="form-control"
               {...register("collection.col_name", { required: true })}
             ></input>
@@ -45,35 +47,35 @@ export const CollectionForm = ({ nextId, errorsForm }) => {
               errorsForm.collection &&
               errorsForm.collection.col_name?.type === "maxLength" &&
               "Le nom est trop long"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
 
-      <FormGroup>
-        <label htmlFor="collection_desc">Description</label>
-        <input
+      <Form.Group>
+        <Form.Label htmlFor="collection_desc">Description</Form.Label>
+        <Form.Control
           className="form-control"
           rows="3"
           {...register("collection.desc")}
         />
-      </FormGroup>
+      </Form.Group>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="collection_folder">Nom de dossier</label>
+          <Form.Group>
+            <Form.Label htmlFor="collection_folder">Nom de dossier</Form.Label>
 
-            <input
+            <Form.Control
               className="form-control"
               type="text"
               {...register("collection.folder")}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="col_publish">Publication</label>
+          <Form.Group>
+            <Form.Label htmlFor="col_publish">Publication</Form.Label>
             <select
               className="form-control"
               type="select"
@@ -82,7 +84,7 @@ export const CollectionForm = ({ nextId, errorsForm }) => {
               <option value="true">Publication en boutique</option>
               <option value="false">Stockage caché</option>
             </select>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

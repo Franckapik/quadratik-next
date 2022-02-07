@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const PropertyForm = ({ nextId, errorsForm }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -20,139 +20,143 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
       <Row form>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="prop_id">Identifiant Propriété</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="prop_id">Identifiant Propriété</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
               disabled
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_depth">Type</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_depth">Type</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("property.type", { required: true })}
               placeholder="D1N7P10L60"
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_wood">Matière</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_wood">Matière</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("property.wood", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
 
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_depth">Profondeur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_depth">Profondeur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.depth", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_length">Longueur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_length">Longueur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.length", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_weight">Poids</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_weight">Poids</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.weight", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_width">Largeur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_width">Largeur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.width", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_width_cel">Largeur des cellules</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_width_cel">
+              Largeur des cellules
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.width_cel", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_area">Aire</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_area">Aire</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.area", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_part_nb">Nombre de pièces</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_part_nb">Nombre de pièces</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.part_nb", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_cel_nb">Nombre de cellules</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_cel_nb">
+              Nombre de cellules
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("property.cel_nb", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
 
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_paint">Peinture </label>
+          <Form.Group>
+            <Form.Label htmlFor="property_paint">Peinture </Form.Label>
             <select
               className="form-control"
               type="select"
@@ -161,18 +165,18 @@ export const PropertyForm = ({ nextId, errorsForm }) => {
               <option value="true">Oui</option>
               <option value="false">Non</option>
             </select>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="property_finish">Finition</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="property_finish">Finition</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("property.finish", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

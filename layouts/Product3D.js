@@ -164,7 +164,7 @@ export const Product3D = ({ p_selected }) => {
           style={{ width: "100%", display: "inline-block" }}
           className="m-2"
         >
-          <label className="mr-4">Type </label>
+          <Form.Label className="mr-4">Type </Form.Label>
 
           <Button onClick={() => setPrime(7)}>7</Button>
           <Button onClick={() => setPrime(11)}>11</Button>
@@ -172,8 +172,8 @@ export const Product3D = ({ p_selected }) => {
           <Button onClick={() => setPrime(17)}>17</Button>
         </Card>
         <Card style={{ width: "100%" }} className="m-2">
-          <label>Largeur</label>
-          <input
+          <Form.Label>Largeur</Form.Label>
+          <Form.Control
             type="range"
             min="1"
             max="200"
@@ -181,8 +181,8 @@ export const Product3D = ({ p_selected }) => {
             defaultValue={width}
             onChange={(e) => setWidth(e.target.value)}
           ></input>
-          <label>Longueur</label>
-          <input
+          <Form.Label>Longueur</Form.Label>
+          <Form.Control
             type="range"
             min="1"
             max="200"
@@ -190,8 +190,8 @@ export const Product3D = ({ p_selected }) => {
             defaultValue={length}
             onChange={(e) => setLength(e.target.value)}
           ></input>
-          <label>Profondeur</label>
-          <input
+          <Form.Label>Profondeur</Form.Label>
+          <Form.Control
             type="range"
             min="1"
             max="50"

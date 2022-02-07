@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 const TransactionInputs = ({ nextId }) => {
   const {
@@ -24,141 +24,141 @@ const TransactionInputs = ({ nextId }) => {
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="transaction_id">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="transaction_id">
               {" "}
               Transaction Id{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("transaction.transaction_id")}
               placeholder={nextId}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_amount">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_amount">
               {" "}
               Montant{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("transaction.amount", { required: true })}
             />
             {errors.name?.type === "required" && "Un montant est requis"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_status">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_status">
               {" "}
               Statut{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("transaction.status", { required: true })}
             />
             {errors.name?.type === "required" && "Un statut est requis"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_mode">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_mode">
               {" "}
               Mode{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("transaction.mode", { required: true })}
             />
             {errors.name?.type === "required" && "Un mode est requis"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_datec">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_datec">
               {" "}
               Date de transaction{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="date"
               {...register("transaction.date_created", { required: true })}
             />
             {errors.name?.type === "required" && "Une date est requise"}
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_datep">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_datep">
               {" "}
               Date de paiement{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="date"
               {...register("transaction.date_payment", { required: true })}
             />
             {errors.name?.type === "required" && "Une date est requise"}
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_last">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_last">
               {" "}
               Derniers nombres{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("transaction.last_numbers")}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_brand">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_brand">
               {" "}
               Marque de carte{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("transaction.card_brand")}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label className="form-control-label" htmlFor="t_desc">
+          <Form.Group>
+            <Form.Label className="form-control-label" htmlFor="t_desc">
               {" "}
               Description{" "}
-            </label>
-            <input
+            </Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("transaction.desc", { maxLength: "100" })}
             />
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

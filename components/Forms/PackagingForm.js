@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { Col, FormGroup, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 export const PackagingForm = ({ nextId, errorsForm }) => {
   const { register, setValue, unregister } = useFormContext();
@@ -20,95 +20,95 @@ export const PackagingForm = ({ nextId, errorsForm }) => {
       <Row form>
         <Col md={2}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_id">Id</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_id">Id</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
               disabled
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={10}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_length">Reference</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_length">Reference</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("packaging.reference", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_length">Longueur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_length">Longueur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.length", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_width">Largueur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_width">Largueur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.width", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_weight">Poids</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_weight">Poids</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.weight", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_depth">Profondeur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_depth">Profondeur</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.depth", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
-          <FormGroup>
-            <label htmlFor="packaging_price">Prix</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_price">Prix</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.charge", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="packaging_unit">Unités</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="packaging_unit">Unités</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("packaging.unit", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
     </>

@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 import {
   Button,
   Col,
-  FormGroup,
+  Form,
   InputGroup,
   InputGroupAddon,
   ListGroup,
@@ -50,34 +50,34 @@ export const DeliveryInputs = ({ nextId }) => {
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_id">Identifiant livraison</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_id">Identifiant livraison</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               placeholder={nextId}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d-recipient">Nom complet</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d-recipient">Nom complet</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("delivery.recipient", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
 
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_address">Adresse</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_address">Adresse</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("delivery.recipient_address", { required: true })}
@@ -101,47 +101,47 @@ export const DeliveryInputs = ({ nextId }) => {
                   </ListGroupItem>
                 ))}
             </ListGroup>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_postal">Code Postal</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_postal">Code Postal</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("delivery.postal", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d-city">Ville</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d-city">Ville</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("delivery.city", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_country">Pays</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_country">Pays</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("delivery.country", { required: true })}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={6}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_type">Mode de livraison</label>
+          <Form.Group>
+            <Form.Label htmlFor="d_type">Mode de livraison</Form.Label>
             <select
               className="form-control"
               type="date"
@@ -151,33 +151,33 @@ export const DeliveryInputs = ({ nextId }) => {
               <option value="pointrelais">Point relais</option>
               <option value="entreprise">Entreprise</option>
             </select>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
       <Row form>
         <Col md={2}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_fdp">Frais de ports</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_fdp">Frais de ports</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("delivery.fdp")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={4}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_service_point">
+          <Form.Group>
+            <Form.Label htmlFor="d_service_point">
               Point relais (Id){" "}
               <span style={{ fontSize: "12px", marginLeft: "10px" }}>
                 {" "}
                 0 si n'existe pas
               </span>{" "}
-            </label>
+            </Form.Label>
             <InputGroup>
-              <input
+              <Form.Control
                 className="form-control"
                 type="number"
                 {...register("delivery.service_point")}
@@ -186,28 +186,28 @@ export const DeliveryInputs = ({ nextId }) => {
                 <Button onClick={setModif}>Rechercher</Button>
               </InputGroupAddon>
             </InputGroup>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
-          <FormGroup>
-            <label htmlFor="d_carrier">Transporteur</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_carrier">Transporteur</Form.Label>
+            <Form.Control
               className="form-control"
               type="text"
               {...register("delivery.carrier")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
         <Col md={3}>
           {" "}
-          <FormGroup>
-            <label htmlFor="d_colis_nb">Nombre de colis</label>
-            <input
+          <Form.Group>
+            <Form.Label htmlFor="d_colis_nb">Nombre de colis</Form.Label>
+            <Form.Control
               className="form-control"
               type="number"
               {...register("delivery.colis_nb")}
             ></input>
-          </FormGroup>
+          </Form.Group>
         </Col>
       </Row>
 

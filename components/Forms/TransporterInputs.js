@@ -20,71 +20,71 @@ export const TransporterInputs = ({
 
   return (
     <>
-      <FormGroup>
-        <label htmlFor="t_id">Identifiant transporter</label>
-        <input
+      <Form.Group>
+        <Form.Label htmlFor="t_id">Identifiant transporter</Form.Label>
+        <Form.Control
           className="form-control"
           type="text"
           placeholder={nextId}
           disabled
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_coldate">Date de départ livraison</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_coldate">Date de départ livraison</Form.Label>
+        <Form.Control
           className="form-control"
           type="date"
           {...register("transporter.col_date", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_fdp">Frais de ports</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_fdp">Frais de ports</Form.Label>
+        <Form.Control
           className="form-control"
           type="number"
           {...register("transporter.fdp", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_deldate">Date de livraison estimée</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_deldate">Date de livraison estimée</Form.Label>
+        <Form.Control
           className="form-control"
           type="date"
           {...register("transporter.del_date", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_serv">Service de transport</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_serv">Service de transport</Form.Label>
+        <Form.Control
           className="form-control"
           type="text"
           {...register("transporter.service", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_order">Date d'achat de livraison</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_order">Date d'achat de livraison</Form.Label>
+        <Form.Control
           className="form-control"
           type="date"
           {...register("transporter.order_date", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_ref">Nom de livraison</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_ref">Nom de livraison</Form.Label>
+        <Form.Control
           className="form-control"
           type="text"
           {...register("transporter.reference", { required: true })}
         ></input>
-      </FormGroup>
-      <FormGroup>
-        <label htmlFor="t_nbcol">Nombre de colis</label>
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label htmlFor="t_nbcol">Nombre de colis</Form.Label>
+        <Form.Control
           className="form-control"
           type="number"
           {...register("transporter.colis_nb", { required: true })}
         ></input>
-      </FormGroup>
+      </Form.Group>
     </>
   );
 };

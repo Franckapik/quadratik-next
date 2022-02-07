@@ -10,7 +10,7 @@ import {
   Col,
   Container,
   Container as Modal3D,
-  FormGroup,
+  Form,
   ListGroup,
   ListGroupItem,
   Modal,
@@ -59,7 +59,7 @@ const Products = () => {
         {/* Dark table */}
         <Row className="mt-5">
           <div className="col">
-            <Card className="bg-default shadow">
+            <Card className="bg-default ">
               <Card.Header className="bg-transparent border-0">
                 <h3 className="text-white mb-0">Liste des produits</h3>
               </Card.Header>
@@ -70,7 +70,7 @@ const Products = () => {
                   className="align-items-center table-dark table-flush"
                   responsive
                 >
-                  <thead className="thead-dark">
+                  <thead>
                     <tr>
                       <th scope="col" className="p-2">
                         <i className="far fa-trash-alt" />
@@ -172,8 +172,8 @@ const Products = () => {
         </Row>
         <Row className="mt-5">
           <Col>
-            <Card className="shadow">
-              <Card.Header className="bg-transparent">
+            <Card>
+              <Card.Header>
                 <h3 className="mb-0">Ajouter un produit</h3>
               </Card.Header>
               <Card.Body>
