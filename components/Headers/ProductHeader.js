@@ -26,89 +26,71 @@ const ProductHeader = ({ products, collections }) => {
   };
 
   return (
-    <>
-      <div className="header bg-gradient-info pb-8 pt-5 pt-md-8">
-        <Container fluid>
-          <div className="header-body">
-            {/* Card stats */}
+    <Row>
+      <Col>
+        <Card className="card-stats mb-4 mb-xl-0">
+          <Card.Body>
             <Row>
-              <Col>
-                <Card className="card-stats mb-4 mb-xl-0">
-                  <Card.Body>
-                    <Row>
-                      <div className="col">
-                        <Card.Title
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Nombre de produits
-                        </Card.Title>
-                        <span className="h2 font-weight-bold mb-0">
-                          {products.length}
-                        </span>
-                      </div>
-                      <Col className="col-auto">
-                        <div className="icon icon-shape bg-info text-white rounded-circle ">
-                          <i className="fas fa-chart-pie" />
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col>
-                <Card className="card-stats mb-4 mb-xl-0">
-                  <Card.Body>
-                    <Row>
-                      <div className="col">
-                        <Card.Title
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Nombre de collections
-                        </Card.Title>
-                        <span className="h2 font-weight-bold mb-0">
-                          {collections.length}
-                        </span>
-                      </div>
-                      <Col className="col-auto">
-                        <div className="icon icon-shape bg-warning text-white rounded-circle ">
-                          <i className="fas fa-layer-group" />
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col>
-                <Card className="card-stats mb-4 mb-xl-0">
-                  <Card.Body>
-                    <Row>
-                      <div className="col">
-                        <Card.Title
-                          tag="h5"
-                          className="text-uppercase text-muted mb-0"
-                        >
-                          Prix moyen
-                        </Card.Title>
-                        <span className="h2 font-weight-bold mb-0">
-                          {prixMoyen(products)} €
-                        </span>
-                      </div>
-                      <Col className="col-auto">
-                        <div className="icon icon-shape bg-danger text-white rounded-circle ">
-                          <i className="ni ni-chart-bar-32" />
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
+              <div className="col">
+                <Card.Title tag="h5" className="text-uppercase text-muted mb-0">
+                  Produits
+                </Card.Title>
+                <span className="h2 font-weight-bold mb-0">
+                  {products.length}
+                </span>
+              </div>
+              <Col className="col-auto">
+                <div className="icon icon-shape bg-info text-white rounded-circle ">
+                  <i className="fas fa-chart-pie" />
+                </div>
               </Col>
             </Row>
-          </div>
-        </Container>
-      </div>
-    </>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col>
+        <Card className="card-stats mb-4 mb-xl-0">
+          <Card.Body>
+            <Row>
+              <div className="col">
+                <Card.Title tag="h5" className="text-uppercase text-muted mb-0">
+                  Collections
+                </Card.Title>
+                <span className="h2 font-weight-bold mb-0">
+                  {collections.length}
+                </span>
+              </div>
+              <Col className="col-auto">
+                <div className="icon icon-shape bg-warning text-white rounded-circle ">
+                  <i className="fas fa-layer-group" />
+                </div>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col>
+        <Card className="card-stats mb-4 mb-xl-0">
+          <Card.Body>
+            <Row>
+              <div className="col">
+                <Card.Title tag="h5" className="text-uppercase text-muted mb-0">
+                  Prix moyen
+                </Card.Title>
+                <span className="h2 font-weight-bold mb-0">
+                  {prixMoyen(products)} €
+                </span>
+              </div>
+              <Col className="col-auto">
+                <div className="icon icon-shape bg-danger text-white rounded-circle ">
+                  <i className="ni ni-chart-bar-32" />
+                </div>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
   );
 };
 

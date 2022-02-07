@@ -1,13 +1,16 @@
 // core components
 import ProductHeader from "../../components/Headers/ProductHeader.js";
 import delData from "../../hooks/delData";
-import postData from "../../hooks/postData";
 import dimension from "../../hooks/useDimension";
 
 import React, { useEffect, useState } from "react";
+import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
-import { CSVReader } from "react-papaparse";
+import { useCSVReader } from "react-papaparse";
 import Select from "react-select";
+
+import prisma from "../../prisma/prisma";
+
 // reactstrap components
 import {
   Button,
@@ -25,8 +28,27 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
+import Layout_Admin from "../../layouts/layout_admin.js";
 
-const Price = () => {
+const uploadedList = 0;
+//ci dessous a mettre dans le serveur pour l'acces a la liste des fichiers uploadés
+/* app.get('/uploadedList', (req, res) => {
+	let arr = []
+
+	fs.readdir('./public/uploads', (err, files) => {
+		if (files) {
+			files.forEach((file) => {
+				arr.push(file)
+				console.log(file)
+			})
+			res.send(arr)
+		} else {
+			res.send(err)
+		}
+	})
+}) */
+
+const Price = ({ productList, collectionList, materialList, propertyList }) => {
   const [p_selected, setSelection] = useState(0);
   const [production, setProduction] = useState(0);
   const [recette, setRecette] = useState(0);
@@ -161,20 +183,26 @@ const Price = () => {
 
   const addFav = () => {
     console.log(m_favorite);
-    postData("/addMatiere", m_favorite);
+    /* postData("/addMatiere", m_favorite); */
+    console.log(m_favorite);
   };
 
-  return (
-    <>
-      {productList && collectionList && collectionList.length > 0 ? (
-        <ProductHeader products={productState} collections={collectionList} />
-      ) : (
-        "Aucun Produit"
-      )}
+  const { CSVReader } = useCSVReader();
 
-      {/* Page content */}
-      <Container className="mt--7" fluid>
-        {/* Dark table */}
+  return (
+    <Layout_Admin>
+      <Container fluid>
+        <Row className="p-4">
+          {" "}
+          {productList && collectionList && collectionList.length > 0 ? (
+            <ProductHeader
+              products={productState}
+              collections={collectionList}
+            />
+          ) : (
+            "Aucun Produit"
+          )}
+        </Row>
 
         <Row>
           <Col md={6}>
@@ -196,7 +224,7 @@ const Price = () => {
                   step={0.1}
                   onChange={(e) => setFraisAd(Number(e.target.value))}
                 ></Form.Control>
-                <Table className="mt-3" hover striped responsive>
+                <Table className="mt-3" responsive>
                   <tbody>
                     <tr>
                       <th>Nom</th>
@@ -294,7 +322,7 @@ const Price = () => {
                   step={0.01}
                   onChange={(e) => setPerte(Number(e.target.value))}
                 ></Form.Control>
-                <Table className="mt-3" hover striped responsive>
+                <Table className="mt-3" responsive>
                   <tbody>
                     <tr>
                       <th>Dimensions</th>
@@ -347,7 +375,7 @@ const Price = () => {
                   step={0.1}
                   onChange={(e) => setTaxe(e.target.value)}
                 ></Form.Control>
-                <Table className="mt-3" hover striped responsive>
+                <Table className="mt-3" responsive>
                   <tbody>
                     <tr>
                       <th>Prix HT</th>
@@ -391,10 +419,10 @@ const Price = () => {
               <Card.Header>Catalogues sur le serveur</Card.Header>
               <Card.Body>
                 <Form.Group>
-                  <Label for="exampleCustomFileBrowser">
+                  <Form.Label for="exampleCustomFileBrowser">
                     Ajouter un catalogue
-                  </Label>
-                  <CustomInput
+                  </Form.Label>
+                  <Form.Control
                     type="file"
                     id="exampleCustomFileBrowser"
                     name="customFile"
@@ -402,12 +430,12 @@ const Price = () => {
                     onChange={onChangeHandler}
                   />
                 </Form.Group>{" "}
-                <List type="inline">
+                <ListGroup type="inline">
                   {uploadedList &&
                     uploadedList.map((a, i) => (
                       <a href={process.env.PUBLIC_URL + "/uploads/" + a}>
                         {" "}
-                        <ListInlineItem>
+                        <ListGroup.Item>
                           <Card className="text-center">
                             {" "}
                             <i
@@ -416,10 +444,10 @@ const Price = () => {
                             ></i>{" "}
                             {a}
                           </Card>
-                        </ListInlineItem>
+                        </ListGroup.Item>
                       </a>
                     ))}
-                </List>
+                </ListGroup>
               </Card.Body>
             </Card>
           </Col>
@@ -430,7 +458,7 @@ const Price = () => {
               <Card>
                 <Card.Header>Lire un fichier CSV</Card.Header>
                 <Card.Body>
-                  <CSVReader
+                  {/* <CSVReader
                     config={{ encoding: "ISO-8859-1" }}
                     onDrop={handleOnDrop}
                     onError={handleOnError}
@@ -439,7 +467,7 @@ const Price = () => {
                     onRemoveFile={handleOnRemoveFile}
                   >
                     <span>Drop un fichier csv pour la lecture</span>
-                  </CSVReader>
+                  </CSVReader> */}
                 </Card.Body>
               </Card>
               <Card>
@@ -529,8 +557,49 @@ const Price = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </Layout_Admin>
   );
 };
 
 export default Price;
+
+export async function getServerSideProps(context) {
+  const productList = await prisma.product.findMany({});
+  const customerList = await prisma.customer.findMany({});
+  const collectionList = await prisma.collection.findMany({});
+  const performanceList = await prisma.performance.findMany({});
+  const packagingList = await prisma.packaging.findMany({});
+  const propertyList = await prisma.property.findMany({});
+  const statusList = await prisma.status.findMany({});
+  const itemList = await prisma.item.findMany({});
+  const deliveryList = await prisma.delivery.findMany({});
+  const invoiceList = JSON.parse(
+    JSON.stringify(await prisma.invoice.findMany({}))
+  );
+  const discountList = JSON.parse(
+    JSON.stringify(await prisma.discount.findMany({}))
+  );
+  const transactionList = JSON.parse(
+    JSON.stringify(await prisma.transaction.findMany({}))
+  );
+  const materialList = JSON.parse(
+    JSON.stringify(await prisma.material.findMany({}))
+  );
+  return {
+    props: {
+      productList,
+      customerList,
+      collectionList,
+      performanceList,
+      packagingList,
+      invoiceList,
+      materialList,
+      propertyList,
+      statusList,
+      itemList,
+      transactionList,
+      discountList,
+      deliveryList,
+    },
+  };
+}

@@ -118,7 +118,7 @@ const FindRelaisMap = ({
                       {a.name} [ {a.carrier} ]
                     </Card.Title>
                     <Card.Body tag="h6" className="p-0 ">
-                      <List type="unstyled" className="mt-0">
+                      <ListGroup type="unstyled" className="mt-0">
                         <li className="text-white">
                           {a.house_number} {a.street}{" "}
                         </li>
@@ -144,7 +144,7 @@ const FindRelaisMap = ({
                               )}
                             </li>
                           ))}
-                      </List>
+                      </ListGroup>
                     </Card.Body>
                   </Card>
                 );
